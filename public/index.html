@@ -42,6 +42,18 @@
         }
       }
 
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+        }
+      }
+
       h1 {
         color: #667eea;
         margin-bottom: 10px;
@@ -239,6 +251,15 @@
       .icon {
         font-size: 16px;
       }
+
+      code {
+        background: #f5f5f5;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        color: #d63384;
+      }
     </style>
   </head>
   <body>
@@ -277,9 +298,41 @@
           <span class="step-number">2</span>
           Enter Authorization Code
         </div>
+        <div
+          id="autoCodeDetected"
+          class="hidden"
+          style="
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #28a745;
+          "
+        >
+          <strong>✅ Code Detected!</strong><br />
+          <span style="font-size: 13px"
+            >The authorization code has been automatically filled below.</span
+          >
+        </div>
         <p style="margin-bottom: 15px; color: #666">
-          After authorizing, paste the code here:
+          After authorizing, the code will automatically appear below:
         </p>
+        <div
+          style="
+            background: #e7f3ff;
+            color: #004085;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            border-left: 4px solid #0066cc;
+          "
+        >
+          <strong>💡 How it works:</strong> After you authorize, Google will
+          redirect back here and the code will automatically fill in. Just click
+          Submit!
+        </div>
         <div class="input-group">
           <input
             type="text"
@@ -463,6 +516,49 @@
       function showLoading(show) {
         document.getElementById("loading").classList.toggle("hidden", !show);
       }
+
+      // Auto-detect authorization code from URL
+      function checkForAuthCode() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get("code");
+
+        if (code) {
+          // Show steps
+          document.getElementById("step2").classList.remove("hidden");
+
+          // Fill the code input
+          document.getElementById("authCode").value = code;
+
+          // Show the auto-detected message
+          document
+            .getElementById("autoCodeDetected")
+            .classList.remove("hidden");
+
+          // Scroll to the code section
+          document
+            .getElementById("step2")
+            .scrollIntoView({ behavior: "smooth", block: "center" });
+
+          // Show success message
+          showMessage(
+            "✅ Authorization code auto-filled! Click Submit to continue.",
+            "success",
+          );
+
+          // Focus on the submit button and add highlight
+          setTimeout(() => {
+            const submitBtn = document.querySelector("#step2 button");
+            submitBtn.focus();
+            submitBtn.style.animation = "pulse 1s ease-in-out 3";
+          }, 500);
+
+          // Clean URL (optional - removes the code from address bar for cleaner look)
+          window.history.replaceState({}, document.title, "/");
+        }
+      }
+
+      // Run on page load
+      window.addEventListener("DOMContentLoaded", checkForAuthCode);
     </script>
   </body>
 </html>
