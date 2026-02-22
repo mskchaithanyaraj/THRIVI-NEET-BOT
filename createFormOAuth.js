@@ -1,4 +1,3 @@
-// ALTERNATIVE SOLUTION: Use OAuth2 instead of Service Account
 // This will open a browser for you to authenticate with your personal Google account
 
 const { google } = require("googleapis");
