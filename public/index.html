@@ -458,9 +458,16 @@
 
           if (data.success) {
             formId = data.formId;
-            displayFormLinks(data.editLink, data.shareLink);
+            displayFormLinks(data.editLink, data.shareLink, data.emailSent);
             document.getElementById("step4").classList.remove("hidden");
-            showMessage("🎉 Quiz created successfully!", "success");
+
+            let message = "🎉 Quiz created successfully!";
+            if (data.emailSent) {
+              message += " Email sent! ✉️";
+            } else if (data.emailError) {
+              message += " (Email failed to send)";
+            }
+            showMessage(message, "success");
           } else {
             showMessage("Error: " + data.error, "error");
             document.getElementById("createFormBtn").disabled = false;
@@ -473,8 +480,25 @@
         }
       }
 
-      function displayFormLinks(editLink, shareLink) {
-        const linksHtml = `
+      function displayFormLinks(editLink, shareLink, emailSent) {
+        let emailStatus = "";
+        if (emailSent) {
+          emailStatus = `
+            <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #28a745;">
+              <strong>✉️ Email Sent!</strong><br>
+              <span style="font-size: 13px;">The form links have been emailed successfully.</span>
+            </div>`;
+        } else {
+          emailStatus = `
+            <div style="background: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #ffc107;">
+              <strong>⚠️ Email Not Configured</strong><br>
+              <span style="font-size: 13px;">Add EMAIL_USER, EMAIL_PASS, and RECIPIENT_EMAIL to .env to enable email notifications.</span>
+            </div>`;
+        }
+
+        const linksHtml =
+          emailStatus +
+          `
                 <div class="link-card">
                     <div>
                         <strong>📝 Edit Link:</strong><br>

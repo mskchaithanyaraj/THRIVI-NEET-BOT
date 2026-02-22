@@ -19,6 +19,7 @@
     "dotenv": "^16.6.1",
     "express": "^4.22.1",
     "googleapis": "^171.4.0",
+    "nodemailer": "^8.0.1",
     "open": "^11.0.0"
   }
 }

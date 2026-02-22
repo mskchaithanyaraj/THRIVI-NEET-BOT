@@ -2,6 +2,7 @@ const express = require("express");
 const { google } = require("googleapis");
 const path = require("path");
 const fs = require("fs");
+const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 const app = express();
@@ -12,6 +13,93 @@ const TOKEN_PATH = path.join(__dirname, "token.json");
 const OAUTH_CREDS_PATH = path.join(__dirname, "oauth_credentials.json");
 
 let oAuth2Client = null;
+
+// Email transporter setup
+let emailTransporter = null;
+if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+  emailTransporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+  console.log("✉️  Email service configured");
+} else {
+  console.log(
+    "⚠️  Email not configured (add EMAIL_USER and EMAIL_PASS to .env)",
+  );
+}
+
+// Function to send email with form links
+async function sendFormEmail(formTitle, editLink, shareLink) {
+  if (!emailTransporter || !process.env.RECIPIENT_EMAIL) {
+    console.log("⚠️  Email not sent: missing configuration");
+    return { success: false, error: "Email not configured" };
+  }
+
+  try {
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: process.env.RECIPIENT_EMAIL,
+      subject: `🎓 ${formTitle} - Ready!`,
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center; }
+            .content { background: #f8f9fa; padding: 30px; border-radius: 0 0 10px 10px; }
+            .button { display: inline-block; padding: 15px 30px; margin: 10px 5px; background: #667eea; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
+            .button:hover { background: #5568d3; }
+            .button.secondary { background: #28a745; }
+            .info { background: white; padding: 15px; border-left: 4px solid #667eea; margin: 20px 0; border-radius: 5px; }
+            .footer { text-align: center; color: #666; font-size: 12px; margin-top: 20px; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>🎓 NEET Quiz Ready!</h1>
+              <p style="margin: 0; opacity: 0.9;">${formTitle}</p>
+            </div>
+            <div class="content">
+              <p>Hi! 👋</p>
+              <p>Your daily NEET quiz has been created and is ready to go!</p>
+              
+              <div class="info">
+                <strong>📝 Form Title:</strong><br>
+                ${formTitle}
+              </div>
+
+              <div style="background: #fff3cd; padding: 15px; border-radius: 5px; border-left: 4px solid #ffc107;">
+                <strong>📩 Neet Quiz Link (for students):</strong><br>
+                <code style="word-break: break-all; font-size: 12px;">${shareLink}</code>
+              </div>
+
+              
+            </div>
+            <div class="footer">
+              <p>Good luck, you need it :)</p>
+              <p>Automated by NEET Quiz Creator - Chaithu 🤖</p>
+              <p>Created on ${new Date().toLocaleString("en-US")}</p>
+            </div>
+          </div>
+        </body>
+        </html>
+      `,
+    };
+
+    await emailTransporter.sendMail(mailOptions);
+    console.log(`✅ Email sent to ${process.env.RECIPIENT_EMAIL}`);
+    return { success: true };
+  } catch (error) {
+    console.error("❌ Email sending failed:", error.message);
+    return { success: false, error: error.message };
+  }
+}
 
 // Middleware
 app.use(express.json());
@@ -150,7 +238,18 @@ app.post("/create-form", async (req, res) => {
     const editLink = `https://docs.google.com/forms/d/${formId}/edit`;
     const shareLink = `https://docs.google.com/forms/d/${formId}/viewform`;
 
-    res.json({ success: true, formId, editLink, shareLink });
+    // Send email with form links
+    console.log("📧 Sending email notification...");
+    const emailResult = await sendFormEmail(formTitle, editLink, shareLink);
+
+    res.json({
+      success: true,
+      formId,
+      editLink,
+      shareLink,
+      emailSent: emailResult.success,
+      emailError: emailResult.error,
+    });
   } catch (error) {
     console.error("Error creating form:", error);
     res.json({ success: false, error: error.message });
