@@ -267,6 +267,21 @@
       <h1>🎓 NEET Quiz Creator</h1>
       <p class="subtitle">Create Google Forms quizzes with automatic grading</p>
 
+      <!-- Re-authenticate button (shown when already authenticated) -->
+      <div
+        id="reAuthSection"
+        class="hidden"
+        style="text-align: right; margin-bottom: 10px"
+      >
+        <button
+          onclick="logout()"
+          style="background: #dc3545; padding: 8px 16px; font-size: 12px"
+        >
+          <span class="icon">🔓</span>
+          Re-authenticate
+        </button>
+      </div>
+
       <!-- Step 1: Authentication -->
       <div id="step1" class="step">
         <div class="step-title">
@@ -385,6 +400,51 @@
     <script>
       let authUrl = "";
       let formId = "";
+
+      // Check authentication status on page load
+      async function checkAuthStatus() {
+        try {
+          const response = await fetch("/check-auth");
+          const data = await response.json();
+
+          if (data.authenticated) {
+            // User is already authenticated, skip to step 3
+            console.log("✅ Already authenticated");
+            document.getElementById("step1").classList.add("hidden");
+            document.getElementById("step2").classList.add("hidden");
+            document.getElementById("step3").classList.remove("hidden");
+            document.getElementById("reAuthSection").classList.remove("hidden");
+            showMessage(
+              "✅ Already authenticated! Ready to create forms.",
+              "success",
+            );
+          } else {
+            // Show step 1 (authorization)
+            console.log("🔐 Not authenticated, showing auth step");
+          }
+        } catch (error) {
+          console.error("Error checking auth:", error);
+        }
+      }
+
+      async function logout() {
+        if (!confirm("This will clear your saved authentication. Continue?")) {
+          return;
+        }
+
+        try {
+          const response = await fetch("/logout", { method: "POST" });
+          const data = await response.json();
+
+          if (data.success) {
+            showMessage("✅ Logged out! Please re-authenticate.", "success");
+            // Reload page to reset everything
+            setTimeout(() => location.reload(), 1500);
+          }
+        } catch (error) {
+          showMessage("Error logging out", "error");
+        }
+      }
 
       async function startAuth() {
         try {
@@ -582,7 +642,10 @@
       }
 
       // Run on page load
-      window.addEventListener("DOMContentLoaded", checkForAuthCode);
+      window.addEventListener("DOMContentLoaded", () => {
+        checkAuthStatus(); // Check if already authenticated
+        checkForAuthCode(); // Check if returning from OAuth with code
+      });
     </script>
   </body>
 </html>

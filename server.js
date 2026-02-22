@@ -130,6 +130,43 @@ app.get("/start-auth", (req, res) => {
   }
 });
 
+// Check if user is already authenticated
+app.get("/check-auth", (req, res) => {
+  try {
+    // Check if token file exists
+    if (!fs.existsSync(TOKEN_PATH)) {
+      return res.json({ authenticated: false });
+    }
+
+    // Try to load and verify token
+    const token = JSON.parse(fs.readFileSync(TOKEN_PATH));
+
+    // Initialize OAuth client if not already done
+    if (!oAuth2Client) {
+      oAuth2Client = getOAuthClient();
+    }
+
+    oAuth2Client.setCredentials(token);
+
+    res.json({ authenticated: true });
+  } catch (error) {
+    res.json({ authenticated: false, error: error.message });
+  }
+});
+
+// Logout - clear token
+app.post("/logout", (req, res) => {
+  try {
+    if (fs.existsSync(TOKEN_PATH)) {
+      fs.unlinkSync(TOKEN_PATH);
+    }
+    oAuth2Client = null;
+    res.json({ success: true });
+  } catch (error) {
+    res.json({ success: false, error: error.message });
+  }
+});
+
 app.post("/submit-code", async (req, res) => {
   try {
     const { code } = req.body;
