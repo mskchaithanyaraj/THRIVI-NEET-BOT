@@ -1,0 +1,29 @@
+# Credentials and tokens - NEVER commit these!
+credentials.json
+oauth_credentials.json
+token.json
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
+
+# Build outputs
+dist/
+build/

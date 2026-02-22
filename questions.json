@@ -1,0 +1,117 @@
+[
+  {
+    "q": "Most stable free radical?",
+    "opts": ["Methyl", "Vinyl", "Allyl", "Ethyl"],
+    "ans": 2
+  },
+  {
+    "q": "IUPAC name for CH3-CO-CH(CH3)2:",
+    "opts": [
+      "3-Methylbutan-2-one",
+      "Isopropyl methyl ketone",
+      "2-Methylbutan-3-one",
+      "2-Pentanone"
+    ],
+    "ans": 0
+  },
+  {
+    "q": "Nucleophilicity in polar protic: F-, Cl-, Br-, I-",
+    "opts": ["F < Cl < Br < I", "I < Br < Cl < F", "F < I < Br < Cl", "Equal"],
+    "ans": 0
+  },
+  {
+    "q": "HBr + 3,3-Dimethylbut-1-ene major product due to:",
+    "opts": ["Resonance", "Methyl shift", "Hydride shift", "Anti-Markownikoff"],
+    "ans": 1
+  },
+  {
+    "q": "Structural isomers for C4H9Cl:",
+    "opts": ["2", "3", "4", "5"],
+    "ans": 2
+  },
+  {
+    "q": "Area of capacitor plates doubled, C becomes:",
+    "opts": ["Half", "Double", "Same", "Four times"],
+    "ans": 1
+  },
+  {
+    "q": "Dipole in UNIFORM electric field experiences:",
+    "opts": ["Net force", "Torque", "Both", "Neither"],
+    "ans": 1
+  },
+  {
+    "q": "Three 3uF in series, then parallel with 1uF. C_eq:",
+    "opts": ["10uF", "2uF", "1uF", "9uF"],
+    "ans": 1
+  },
+  {
+    "q": "Work bringing unit +ve charge from infinity to r is W. Potential is:",
+    "opts": ["W", "W/Q", "WQ", "W^2"],
+    "ans": 0
+  },
+  {
+    "q": "Soap bubble given negative charge. Radius will:",
+    "opts": ["Increase", "Decrease", "No change", "Shrink then expand"],
+    "ans": 0
+  },
+  {
+    "q": "Final electron acceptor in Z-scheme:",
+    "opts": ["Water", "NADP+", "Oxygen", "Cytochrome"],
+    "ans": 1
+  },
+  {
+    "q": "DNA length (6.6x10^9 bp, dist 0.34nm):",
+    "opts": ["2.2m", "1.1m", "3.4m", "6.6m"],
+    "ans": 0
+  },
+  {
+    "q": "Enzyme NOT used in E. coli DNA replication:",
+    "opts": ["DNA Poly", "Helicase", "Primase", "RNA Poly II"],
+    "ans": 3
+  },
+  {
+    "q": "ATP & NADPH2 for 1 Glucose in C3 cycle:",
+    "opts": ["12, 12", "18, 12", "30, 12", "38, 18"],
+    "ans": 1
+  },
+  {
+    "q": "Color-blind man + woman (father color-blind). Son probability?",
+    "opts": ["0%", "25%", "50%", "100%"],
+    "ans": 2
+  },
+  {
+    "q": "Nephron part LEAST permeable to water:",
+    "opts": ["PCT", "Descending Loop", "Ascending Loop", "Collecting Duct"],
+    "ans": 2
+  },
+  {
+    "q": "Capacitation occurs in:",
+    "opts": ["Epididymis", "Vas deferens", "Female tract", "Rete testis"],
+    "ans": 2
+  },
+  {
+    "q": "Hormone peaking during mid-luteal phase:",
+    "opts": ["LH", "FSH", "Estrogen", "Progesterone"],
+    "ans": 3
+  },
+  {
+    "q": "In Emphysema, the:",
+    "opts": [
+      "Alveolar walls damaged",
+      "Bronchioles inflamed",
+      "Hb binding fails",
+      "VC increases"
+    ],
+    "ans": 0
+  },
+  {
+    "q": "Volumes: TV(500), IRV(2500), ERV(1000), RV(1200):",
+    "opts": [
+      "i-c, ii-a, iii-d, iv-b",
+      "i-c, ii-d, iii-a, iv-b",
+      "i-b, ii-a, iii-d, iv-c",
+      "i-d, ii-c, iii-b, iv-a"
+    ],
+    "ans": 0
+  }
+]
