@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NEET Quiz Creator</title>
     <style>
+      :root {
+        --bg-main: #09090b; /* Deep dark background */
+        --bg-card: #141415; /* Slightly lighter for containers */
+        --bg-step: #1c1c1e; /* Step background */
+        --border-color: #27272a; /* Subtle dark borders */
+        --text-primary: #fafafa; /* Bright white */
+        --text-secondary: #a1a1aa; /* Muted grey */
+        --accent-primary: #ffffff; /* White buttons */
+        --accent-primary-text: #000000; /* Black text on white buttons */
+        --accent-hover: #e4e4e7;
+
+        /* Alert Colors for Dark Mode */
+        --success-bg: rgba(34, 197, 94, 0.1);
+        --success-text: #4ade80;
+        --success-border: #22c55e;
+
+        --info-bg: rgba(59, 130, 246, 0.1);
+        --info-text: #60a5fa;
+        --info-border: #3b82f6;
+
+        --warning-bg: rgba(234, 179, 8, 0.1);
+        --warning-text: #facc15;
+        --warning-border: #eab308;
+
+        --error-bg: rgba(239, 68, 68, 0.1);
+        --error-text: #f87171;
+        --error-border: #ef4444;
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -12,8 +41,11 @@
       }
 
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        background: var(--bg-main);
+        color: var(--text-primary);
         min-height: 100vh;
         display: flex;
         justify-content: center;
@@ -22,19 +54,20 @@
       }
 
       .container {
-        background: white;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
         border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         max-width: 700px;
         width: 100%;
         padding: 40px;
-        animation: slideIn 0.5s ease-out;
+        animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       @keyframes slideIn {
         from {
           opacity: 0;
-          transform: translateY(-30px);
+          transform: translateY(20px);
         }
         to {
           opacity: 1;
@@ -42,113 +75,127 @@
         }
       }
 
-      @keyframes pulse {
+      @keyframes pulse-border {
         0%,
         100% {
-          transform: scale(1);
-          box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+          border-color: var(--border-color);
         }
         50% {
-          transform: scale(1.05);
-          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+          border-color: var(--text-primary);
         }
       }
 
       h1 {
-        color: #667eea;
-        margin-bottom: 10px;
+        color: var(--text-primary);
+        margin-bottom: 8px;
         font-size: 32px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
       }
 
       .subtitle {
-        color: #666;
-        margin-bottom: 30px;
-        font-size: 14px;
+        color: var(--text-secondary);
+        margin-bottom: 35px;
+        font-size: 15px;
+        font-weight: 400;
       }
 
       .step {
-        margin-bottom: 30px;
-        padding: 20px;
-        background: #f8f9fa;
-        border-radius: 12px;
-        border-left: 4px solid #667eea;
+        margin-bottom: 25px;
+        padding: 24px;
+        background: var(--bg-step);
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .step:hover {
+        border-color: #3f3f46;
       }
 
       .step-title {
-        color: #667eea;
+        color: var(--text-primary);
         font-weight: 600;
-        margin-bottom: 15px;
+        margin-bottom: 16px;
         font-size: 18px;
         display: flex;
         align-items: center;
+        letter-spacing: -0.01em;
       }
 
       .step-number {
-        background: #667eea;
-        color: white;
-        width: 30px;
-        height: 30px;
+        background: var(--text-primary);
+        color: var(--bg-main);
+        width: 28px;
+        height: 28px;
         border-radius: 50%;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        margin-right: 10px;
-        font-size: 14px;
+        margin-right: 12px;
+        font-size: 13px;
+        font-weight: 700;
       }
 
       .url-box {
-        background: white;
-        padding: 15px;
-        border-radius: 8px;
-        border: 2px solid #e0e0e0;
+        background: #000000;
+        padding: 16px;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
         margin-bottom: 15px;
         word-break: break-all;
-        font-family: "Courier New", monospace;
+        font-family: "JetBrains Mono", "Courier New", monospace;
         font-size: 13px;
-        color: #333;
+        color: var(--text-secondary);
         max-height: 100px;
         overflow-y: auto;
       }
 
       .input-group {
         display: flex;
-        gap: 10px;
+        gap: 12px;
         margin-bottom: 15px;
       }
 
       input[type="text"] {
         flex: 1;
-        padding: 12px 15px;
-        border: 2px solid #e0e0e0;
-        border-radius: 8px;
+        padding: 14px 16px;
+        background: #000000;
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
         font-size: 14px;
-        transition: border-color 0.3s;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
       }
 
       input[type="text"]:focus {
         outline: none;
-        border-color: #667eea;
+        border-color: #52525b;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.05);
       }
 
       button {
         padding: 12px 24px;
-        background: #667eea;
-        color: white;
-        border: none;
-        border-radius: 8px;
+        background: var(--accent-primary);
+        color: var(--accent-primary-text);
+        border: 1px solid transparent;
+        border-radius: 10px;
         cursor: pointer;
         font-weight: 600;
         font-size: 14px;
-        transition: all 0.3s;
+        transition: all 0.2s ease;
         display: flex;
         align-items: center;
         gap: 8px;
       }
 
       button:hover {
-        background: #5568d3;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        background: var(--accent-hover);
+        transform: translateY(-1px);
       }
 
       button:active {
@@ -156,58 +203,110 @@
       }
 
       button:disabled {
-        background: #ccc;
+        background: #27272a;
+        color: #52525b;
         cursor: not-allowed;
         transform: none;
       }
 
-      .copy-btn {
-        background: #28a745;
-        padding: 8px 16px;
-      }
-
-      .copy-btn:hover {
-        background: #218838;
-      }
-
+      /* Secondary Outline Buttons */
+      .copy-btn,
       .open-btn {
-        background: #007bff;
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
       }
 
+      .copy-btn:hover,
       .open-btn:hover {
-        background: #0056b3;
+        background: var(--border-color);
+        color: var(--text-primary);
       }
 
-      .success {
-        background: #d4edda;
-        color: #155724;
+      #reAuthSection button {
+        background: transparent;
+        color: var(--error-text);
+        border: 1px solid var(--error-border);
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+
+      #reAuthSection button:hover {
+        background: var(--error-bg);
+      }
+
+      /* Alert System */
+      .alert {
+        padding: 16px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        border-left: 4px solid transparent;
+        line-height: 1.5;
+      }
+
+      .alert strong {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 4px;
+      }
+      .alert span {
+        font-size: 13px;
+        opacity: 0.9;
+      }
+
+      .alert-success {
+        background: var(--success-bg);
+        color: var(--success-text);
+        border-left-color: var(--success-border);
+      }
+
+      .alert-error,
+      .error {
+        background: var(--error-bg);
+        color: var(--error-text);
+        border-left-color: var(--error-border);
         padding: 15px;
         border-radius: 8px;
-        border-left: 4px solid #28a745;
         margin-top: 20px;
       }
 
-      .error {
-        background: #f8d7da;
-        color: #721c24;
+      .alert-info {
+        background: var(--info-bg);
+        color: var(--info-text);
+        border-left-color: var(--info-border);
+        margin-bottom: 15px;
+      }
+
+      .alert-warning {
+        background: var(--warning-bg);
+        color: var(--warning-text);
+        border-left-color: var(--warning-border);
+        margin-bottom: 15px;
+      }
+
+      /* Base Success Message Div (Legacy class mapping) */
+      .success {
+        background: var(--success-bg);
+        color: var(--success-text);
+        border-left: 4px solid var(--success-border);
         padding: 15px;
         border-radius: 8px;
-        border-left: 4px solid #dc3545;
         margin-top: 20px;
       }
 
       .hidden {
-        display: none;
+        display: none !important;
       }
 
       .loading {
         display: inline-block;
-        width: 20px;
-        height: 20px;
-        border: 3px solid #f3f3f3;
-        border-top: 3px solid #667eea;
+        width: 24px;
+        height: 24px;
+        border: 3px solid #27272a;
+        border-top: 3px solid var(--text-primary);
         border-radius: 50%;
-        animation: spin 1s linear infinite;
+        animation: spin 1s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
       }
 
       @keyframes spin {
@@ -220,32 +319,40 @@
       }
 
       .link-card {
-        background: white;
-        padding: 15px;
-        border-radius: 8px;
-        border: 2px solid #e0e0e0;
-        margin-bottom: 15px;
+        background: #000000;
+        padding: 16px 20px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        margin-bottom: 12px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 10px;
+        gap: 15px;
+      }
+
+      .link-card strong {
+        color: var(--text-primary);
+        font-weight: 500;
+        margin-bottom: 6px;
+        display: inline-block;
       }
 
       .link-card a {
-        color: #667eea;
+        color: var(--text-secondary);
         text-decoration: none;
         flex: 1;
         word-break: break-all;
         font-size: 13px;
+        transition: color 0.2s;
       }
 
       .link-card a:hover {
-        text-decoration: underline;
+        color: var(--text-primary);
       }
 
       .button-group {
         display: flex;
-        gap: 10px;
+        gap: 8px;
       }
 
       .icon {
@@ -253,12 +360,16 @@
       }
 
       code {
-        background: #f5f5f5;
+        background: #27272a;
         padding: 2px 6px;
-        border-radius: 3px;
-        font-family: "Courier New", monospace;
+        border-radius: 4px;
+        font-family: "JetBrains Mono", "Courier New", monospace;
         font-size: 12px;
-        color: #d63384;
+        color: var(--text-primary);
+      }
+
+      p {
+        color: var(--text-secondary);
       }
     </style>
   </head>
@@ -267,87 +378,59 @@
       <h1>🎓 NEET Quiz Creator</h1>
       <p class="subtitle">Create Google Forms quizzes with automatic grading</p>
 
-      <!-- Re-authenticate button (shown when already authenticated) -->
       <div
         id="reAuthSection"
         class="hidden"
-        style="text-align: right; margin-bottom: 10px"
+        style="text-align: right; margin-bottom: 16px"
       >
-        <button
-          onclick="logout()"
-          style="background: #dc3545; padding: 8px 16px; font-size: 12px"
-        >
-          <span class="icon">🔓</span>
-          Re-authenticate
+        <button onclick="logout()">
+          <span class="icon">🔓</span> Re-authenticate
         </button>
       </div>
 
-      <!-- Step 1: Authentication -->
       <div id="step1" class="step">
         <div class="step-title">
-          <span class="step-number">1</span>
-          Authorize Access
+          <span class="step-number">1</span> Authorize Access
         </div>
-        <p style="margin-bottom: 15px; color: #666">
+        <p style="margin-bottom: 16px">
           Click the button below to open Google authentication:
         </p>
         <button id="startAuthBtn" onclick="startAuth()">
-          <span class="icon">🔐</span>
-          Start Authorization
+          <span class="icon">🔐</span> Start Authorization
         </button>
-        <div id="authUrlSection" class="hidden" style="margin-top: 15px">
-          <p style="margin-bottom: 10px; color: #666">
-            Or copy this URL manually:
-          </p>
+        <div id="authUrlSection" class="hidden" style="margin-top: 16px">
+          <p style="margin-bottom: 12px">Or copy this URL manually:</p>
           <div class="url-box" id="authUrl"></div>
           <button class="copy-btn" onclick="copyAuthUrl()">
-            <span class="icon">📋</span>
-            Copy URL
+            <span class="icon">📋</span> Copy URL
           </button>
         </div>
       </div>
 
-      <!-- Step 2: Enter Code -->
       <div id="step2" class="step hidden">
         <div class="step-title">
-          <span class="step-number">2</span>
-          Enter Authorization Code
+          <span class="step-number">2</span> Enter Authorization Code
         </div>
-        <div
-          id="autoCodeDetected"
-          class="hidden"
-          style="
-            background: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border-left: 4px solid #28a745;
-          "
-        >
-          <strong>✅ Code Detected!</strong><br />
-          <span style="font-size: 13px"
+
+        <div id="autoCodeDetected" class="alert alert-success hidden">
+          <strong>✅ Code Detected!</strong>
+          <span
             >The authorization code has been automatically filled below.</span
           >
         </div>
-        <p style="margin-bottom: 15px; color: #666">
+
+        <p style="margin-bottom: 16px">
           After authorizing, the code will automatically appear below:
         </p>
-        <div
-          style="
-            background: #e7f3ff;
-            color: #004085;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            font-size: 13px;
-            border-left: 4px solid #0066cc;
-          "
-        >
-          <strong>💡 How it works:</strong> After you authorize, Google will
-          redirect back here and the code will automatically fill in. Just click
-          Submit!
+
+        <div class="alert alert-info">
+          <strong>💡 How it works:</strong>
+          <span
+            >After you authorize, Google will redirect back here and the code
+            will automatically fill in. Just click Submit!</span
+          >
         </div>
+
         <div class="input-group">
           <input
             type="text"
@@ -355,45 +438,37 @@
             placeholder="Paste authorization code here..."
           />
           <button onclick="submitCode()">
-            <span class="icon">✓</span>
-            Submit
+            <span class="icon">✓</span> Submit
           </button>
         </div>
       </div>
 
-      <!-- Step 3: Create Form -->
       <div id="step3" class="step hidden">
         <div class="step-title">
-          <span class="step-number">3</span>
-          Create Quiz
+          <span class="step-number">3</span> Create Quiz
         </div>
-        <p style="margin-bottom: 15px; color: #666">
-          Ready to create your NEET quiz!
-        </p>
+        <p style="margin-bottom: 16px">Ready to create your NEET quiz!</p>
         <button id="createFormBtn" onclick="createForm()">
-          <span class="icon">📝</span>
-          Create Quiz Form
+          <span class="icon">📝</span> Create Quiz Form
         </button>
       </div>
 
-      <!-- Step 4: Results -->
       <div id="step4" class="step hidden">
         <div class="step-title">
-          <span class="step-number">4</span>
-          Your Quiz Links
+          <span class="step-number">4</span> Your Quiz Links
         </div>
         <div id="formLinks"></div>
       </div>
 
-      <!-- Messages -->
       <div id="message"></div>
+
       <div
         id="loading"
         class="hidden"
-        style="text-align: center; padding: 20px"
+        style="text-align: center; padding: 24px"
       >
         <div class="loading"></div>
-        <p style="margin-top: 10px; color: #666">Processing...</p>
+        <p style="margin-top: 12px">Processing...</p>
       </div>
     </div>
 
@@ -408,7 +483,6 @@
           const data = await response.json();
 
           if (data.authenticated) {
-            // User is already authenticated, skip to step 3
             console.log("✅ Already authenticated");
             document.getElementById("step1").classList.add("hidden");
             document.getElementById("step2").classList.add("hidden");
@@ -419,7 +493,6 @@
               "success",
             );
           } else {
-            // Show step 1 (authorization)
             console.log("🔐 Not authenticated, showing auth step");
           }
         } catch (error) {
@@ -438,7 +511,6 @@
 
           if (data.success) {
             showMessage("✅ Logged out! Please re-authenticate.", "success");
-            // Reload page to reset everything
             setTimeout(() => location.reload(), 1500);
           }
         } catch (error) {
@@ -459,9 +531,7 @@
               .classList.remove("hidden");
             document.getElementById("step2").classList.remove("hidden");
 
-            // Open in new tab
             window.open(authUrl, "_blank");
-
             showMessage(
               "Please authorize in the new tab and copy the code",
               "success",
@@ -544,42 +614,42 @@
         let emailStatus = "";
         if (emailSent) {
           emailStatus = `
-            <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #28a745;">
-              <strong>✉️ Email Sent!</strong><br>
-              <span style="font-size: 13px;">The form links have been emailed successfully.</span>
+            <div class="alert alert-success">
+              <strong>✉️ Email Sent!</strong>
+              <span>The form links have been emailed successfully.</span>
             </div>`;
         } else {
           emailStatus = `
-            <div style="background: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #ffc107;">
-              <strong>⚠️ Email Not Configured</strong><br>
-              <span style="font-size: 13px;">Add EMAIL_USER, EMAIL_PASS, and RECIPIENT_EMAIL to .env to enable email notifications.</span>
+            <div class="alert alert-warning">
+              <strong>⚠️ Email Not Configured</strong>
+              <span>Add EMAIL_USER, EMAIL_PASS, and RECIPIENT_EMAIL to .env to enable email notifications.</span>
             </div>`;
         }
 
         const linksHtml =
           emailStatus +
           `
-                <div class="link-card">
-                    <div>
-                        <strong>📝 Edit Link:</strong><br>
-                        <a href="${editLink}" target="_blank">${editLink}</a>
-                    </div>
-                    <div class="button-group">
-                        <button class="copy-btn" onclick="copyToClipboard('${editLink}')">📋 Copy</button>
-                        <button class="open-btn" onclick="window.open('${editLink}', '_blank')">🔗 Open</button>
-                    </div>
-                </div>
-                <div class="link-card">
-                    <div>
-                        <strong>📩 Share Link:</strong><br>
-                        <a href="${shareLink}" target="_blank">${shareLink}</a>
-                    </div>
-                    <div class="button-group">
-                        <button class="copy-btn" onclick="copyToClipboard('${shareLink}')">📋 Copy</button>
-                        <button class="open-btn" onclick="window.open('${shareLink}', '_blank')">🔗 Open</button>
-                    </div>
-                </div>
-            `;
+            <div class="link-card">
+              <div>
+                <strong>📝 Edit Link:</strong><br>
+                <a href="${editLink}" target="_blank">${editLink}</a>
+              </div>
+              <div class="button-group">
+                <button class="copy-btn" onclick="copyToClipboard('${editLink}')">📋 Copy</button>
+                <button class="open-btn" onclick="window.open('${editLink}', '_blank')">🔗 Open</button>
+              </div>
+            </div>
+            <div class="link-card">
+              <div>
+                <strong>📩 Share Link:</strong><br>
+                <a href="${shareLink}" target="_blank">${shareLink}</a>
+              </div>
+              <div class="button-group">
+                <button class="copy-btn" onclick="copyToClipboard('${shareLink}')">📋 Copy</button>
+                <button class="open-btn" onclick="window.open('${shareLink}', '_blank')">🔗 Open</button>
+              </div>
+            </div>
+          `;
         document.getElementById("formLinks").innerHTML = linksHtml;
       }
 
@@ -607,44 +677,34 @@
         const code = urlParams.get("code");
 
         if (code) {
-          // Show steps
           document.getElementById("step2").classList.remove("hidden");
-
-          // Fill the code input
           document.getElementById("authCode").value = code;
-
-          // Show the auto-detected message
           document
             .getElementById("autoCodeDetected")
             .classList.remove("hidden");
 
-          // Scroll to the code section
           document
             .getElementById("step2")
             .scrollIntoView({ behavior: "smooth", block: "center" });
-
-          // Show success message
           showMessage(
             "✅ Authorization code auto-filled! Click Submit to continue.",
             "success",
           );
 
-          // Focus on the submit button and add highlight
           setTimeout(() => {
             const submitBtn = document.querySelector("#step2 button");
             submitBtn.focus();
-            submitBtn.style.animation = "pulse 1s ease-in-out 3";
+            submitBtn.style.animation = "pulse-border 1s ease-in-out 3";
           }, 500);
 
-          // Clean URL (optional - removes the code from address bar for cleaner look)
           window.history.replaceState({}, document.title, "/");
         }
       }
 
       // Run on page load
       window.addEventListener("DOMContentLoaded", () => {
-        checkAuthStatus(); // Check if already authenticated
-        checkForAuthCode(); // Check if returning from OAuth with code
+        checkAuthStatus();
+        checkForAuthCode();
       });
     </script>
   </body>
