@@ -4,10 +4,22 @@ Automated Google Forms quiz creator for NEET 2026 daily tests.
 
 ## Features
 
+- ✅ **AI-Powered Question Generation** with multiple AI services
+  - **Gemini** (Google) - Fast and free
+  - **ChatGPT** (OpenAI) - Temporary chat mode
+  - **Claude** (Anthropic) - High quality responses
+  - **DeepSeek** - Alternative option
+  - Configure questions by subject (Botany, Zoology, Physics, Chemistry)
+  - Set difficulty ratios (Easy:Medium:Hard:Very Hard)
+  - Choose question types (Lengthy, Time-taking, One-line, Confusing, Conceptual, Application-based)
+  - Automatic explanations for each answer
+  - **Auto-copy prompt** to clipboard when opening AI
 - ✅ Creates Google Forms quizzes with multiple choice questions
 - ✅ Automatically sets correct answers and point values (4 points each)
 - ✅ Moves forms to designated Google Drive folder
+- ✅ **Email notifications** with quiz links
 - ✅ OAuth2 authentication for secure access
+- ✅ Beautiful web interface with step-by-step guidance
 
 ## Setup Instructions
 
@@ -40,18 +52,35 @@ npm install
 cp .env.example .env
 ```
 
-2. Edit `.env` and set your Google Drive folder ID:
+2. Edit `.env` and configure the following:
 
-```
+```env
+# Required: Google Drive folder ID
 FOLDER_ID=your_folder_id_here
+
+# Optional: Server port (default: 3000)
 PORT=3000
+
+# Optional but recommended: Email notifications
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-gmail-app-password
+RECIPIENT_EMAIL=recipient@example.com
+
+# Optional: AI Question Generation with Gemini
+GEMINI_API_KEY=your-gemini-api-key-here
 ```
 
-To find your folder ID, open the folder in Google Drive and copy the ID from the URL:
+**Getting your credentials:**
 
-```
-https://drive.google.com/drive/folders/YOUR_FOLDER_ID_HERE
-```
+- **FOLDER_ID**: Open your Google Drive folder and copy the ID from the URL:
+
+  ```
+  https://drive.google.com/drive/folders/YOUR_FOLDER_ID_HERE
+  ```
+
+- **EMAIL_PASS**: Generate a Gmail App Password at [https://myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
+
+- **GEMINI_API_KEY**: Get your free API key at [https://makersuite.google.com/app/apikey](https://makersuite.google.com/app/apikey)
 
 ### 4. Start the Web Interface
 
@@ -94,7 +123,53 @@ Edit `questions.json` with your quiz questions:
 
 ### 6. How It Works
 
-The application will:
+The application workflow:
+
+1. **Authenticate** with Google OAuth2
+2. **Generate Questions** (Two options):
+   - **AI Generation** (Recommended): Configure parameters and let Gemini AI create custom NEET questions with explanations
+   - **Manual**: Edit `questions.json` with your own questions
+3. **Create Form**: Automatically creates Google Forms quiz with all questions
+4. **Email Delivery**: Sends quiz link to configured email
+5. **Outputs** edit and share links for the form
+
+#### Using AI Generation
+
+The AI-powered generator allows you to:
+
+- **Multiple AI Services**: Choose your preferred AI:
+  - 🔷 **Gemini** (Google AI Studio) - Fast, free, no login for guest mode
+  - 💬 **ChatGPT** (OpenAI) - Opens in temporary chat mode (no history saved)
+  - 🧠 **Claude** (Anthropic) - High-quality responses
+  - 🔮 **DeepSeek** - Alternative AI option
+  - **Auto-copy**: Prompt is automatically copied to clipboard when you click any AI button
+- **Subject Distribution**: Specify exact number of questions per subject (Botany, Zoology, Physics, Chemistry)
+
+- **Preferred Topics** (Optional): Focus on specific topics within each subject
+  - Examples: "Photosynthesis, Plant Hormones" for Botany
+  - "Electrostatics, Magnetism" for Physics
+  - "Organic Reactions, Chemical Bonding" for Chemistry
+  - Leave empty to cover all NEET syllabus topics
+- **Difficulty Control**: Set ratio like 3:2:1:10 for Easy:Medium:Hard:Very Hard questions
+
+- **Question Styles**: Mix different types:
+  - 📝 Lengthy (detailed scenarios)
+  - ⏱️ Time-taking (multi-step calculations)
+  - 💨 One-line (quick recall)
+  - 🌀 Confusing (tricky options)
+  - 💡 Conceptual (deep understanding)
+  - 🔧 Application-based (real-world problems)
+- **Auto-Explanations**: Each question includes detailed explanation for learning
+
+**AI Workflow:**
+
+1. Configure your question parameters (subjects, difficulty, types)
+2. Click "Build Prompt for AI"
+3. Choose any AI service (Gemini, ChatGPT, Claude, or DeepSeek)
+4. Prompt is auto-copied - just paste (Ctrl+V) in the AI chat
+5. Copy the JSON response from AI
+6. Paste it back and click "Save Questions & Continue"
+7. Create Google Form with one click!
 
 The script will:
 

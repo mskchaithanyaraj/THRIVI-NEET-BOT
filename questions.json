@@ -1,117 +1,282 @@
 [
   {
-    "q": "Most stable free radical?",
-    "opts": ["Methyl", "Vinyl", "Allyl", "Ethyl"],
-    "ans": 2
-  },
-  {
-    "q": "IUPAC name for CH3-CO-CH(CH3)2:",
+    "q": "Which of the following plant hormones is primarily responsible for apical dominance in higher plants?",
     "opts": [
-      "3-Methylbutan-2-one",
-      "Isopropyl methyl ketone",
-      "2-Methylbutan-3-one",
-      "2-Pentanone"
+      "Auxin",
+      "Cytokinin",
+      "Gibberellin",
+      "Ethylene"
     ],
-    "ans": 0
+    "ans": 0,
+    "explanation": "Auxin, mainly indole-3-acetic acid (IAA), is synthesized in the shoot apex and suppresses the growth of lateral buds, resulting in apical dominance. Cytokinin promotes lateral bud growth, gibberellin promotes stem elongation, and ethylene is involved in fruit ripening and stress responses.",
+    "subject": "Botany",
+    "difficulty": "Easy",
+    "type": "oneLine"
   },
   {
-    "q": "Nucleophilicity in polar protic: F-, Cl-, Br-, I-",
-    "opts": ["F < Cl < Br < I", "I < Br < Cl < F", "F < I < Br < Cl", "Equal"],
-    "ans": 0
-  },
-  {
-    "q": "HBr + 3,3-Dimethylbut-1-ene major product due to:",
-    "opts": ["Resonance", "Methyl shift", "Hydride shift", "Anti-Markownikoff"],
-    "ans": 1
-  },
-  {
-    "q": "Structural isomers for C4H9Cl:",
-    "opts": ["2", "3", "4", "5"],
-    "ans": 2
-  },
-  {
-    "q": "Area of capacitor plates doubled, C becomes:",
-    "opts": ["Half", "Double", "Same", "Four times"],
-    "ans": 1
-  },
-  {
-    "q": "Dipole in UNIFORM electric field experiences:",
-    "opts": ["Net force", "Torque", "Both", "Neither"],
-    "ans": 1
-  },
-  {
-    "q": "Three 3uF in series, then parallel with 1uF. C_eq:",
-    "opts": ["10uF", "2uF", "1uF", "9uF"],
-    "ans": 1
-  },
-  {
-    "q": "Work bringing unit +ve charge from infinity to r is W. Potential is:",
-    "opts": ["W", "W/Q", "WQ", "W^2"],
-    "ans": 0
-  },
-  {
-    "q": "Soap bubble given negative charge. Radius will:",
-    "opts": ["Increase", "Decrease", "No change", "Shrink then expand"],
-    "ans": 0
-  },
-  {
-    "q": "Final electron acceptor in Z-scheme:",
-    "opts": ["Water", "NADP+", "Oxygen", "Cytochrome"],
-    "ans": 1
-  },
-  {
-    "q": "DNA length (6.6x10^9 bp, dist 0.34nm):",
-    "opts": ["2.2m", "1.1m", "3.4m", "6.6m"],
-    "ans": 0
-  },
-  {
-    "q": "Enzyme NOT used in E. coli DNA replication:",
-    "opts": ["DNA Poly", "Helicase", "Primase", "RNA Poly II"],
-    "ans": 3
-  },
-  {
-    "q": "ATP & NADPH2 for 1 Glucose in C3 cycle:",
-    "opts": ["12, 12", "18, 12", "30, 12", "38, 18"],
-    "ans": 1
-  },
-  {
-    "q": "Color-blind man + woman (father color-blind). Son probability?",
-    "opts": ["0%", "25%", "50%", "100%"],
-    "ans": 2
-  },
-  {
-    "q": "Nephron part LEAST permeable to water:",
-    "opts": ["PCT", "Descending Loop", "Ascending Loop", "Collecting Duct"],
-    "ans": 2
-  },
-  {
-    "q": "Capacitation occurs in:",
-    "opts": ["Epididymis", "Vas deferens", "Female tract", "Rete testis"],
-    "ans": 2
-  },
-  {
-    "q": "Hormone peaking during mid-luteal phase:",
-    "opts": ["LH", "FSH", "Estrogen", "Progesterone"],
-    "ans": 3
-  },
-  {
-    "q": "In Emphysema, the:",
+    "q": "The functional unit of kidney responsible for urine formation is:",
     "opts": [
-      "Alveolar walls damaged",
-      "Bronchioles inflamed",
-      "Hb binding fails",
-      "VC increases"
+      "Neuron",
+      "Nephron",
+      "Alveolus",
+      "Sarcomere"
     ],
-    "ans": 0
+    "ans": 1,
+    "explanation": "The nephron is the structural and functional unit of the kidney. It consists of Bowman's capsule, glomerulus, PCT, loop of Henle, DCT, and collecting duct. Neuron is the unit of nervous system, alveolus is for gas exchange, and sarcomere is the unit of muscle contraction.",
+    "subject": "Zoology",
+    "difficulty": "Easy",
+    "type": "oneLine"
   },
   {
-    "q": "Volumes: TV(500), IRV(2500), ERV(1000), RV(1200):",
+    "q": "A body of mass 2 kg is moving with a velocity of 3 m/s. What is its kinetic energy?",
     "opts": [
-      "i-c, ii-a, iii-d, iv-b",
-      "i-c, ii-d, iii-a, iv-b",
-      "i-b, ii-a, iii-d, iv-c",
-      "i-d, ii-c, iii-b, iv-a"
+      "3 J",
+      "6 J",
+      "9 J",
+      "18 J"
     ],
-    "ans": 0
+    "ans": 2,
+    "explanation": "Kinetic energy = (1/2)mv^2 = (1/2) × 2 × (3)^2 = 1 × 9 = 9 J. Hence, the correct answer is 9 J.",
+    "subject": "Physics",
+    "difficulty": "Easy",
+    "type": "direct"
+  },
+  {
+    "q": "Which quantum number determines the shape of an orbital?",
+    "opts": [
+      "Principal quantum number (n)",
+      "Azimuthal quantum number (l)",
+      "Magnetic quantum number (m)",
+      "Spin quantum number (s)"
+    ],
+    "ans": 1,
+    "explanation": "The azimuthal quantum number (l) determines the shape of the orbital (s, p, d, f). Principal quantum number determines size and energy level, magnetic quantum number determines orientation, and spin quantum number determines spin direction.",
+    "subject": "Chemistry",
+    "difficulty": "Medium",
+    "type": "conceptual"
+  },
+  {
+    "q": "In a cross between a heterozygous tall pea plant (Tt) and a dwarf plant (tt), what percentage of the offspring is expected to be dwarf?",
+    "opts": [
+      "0%",
+      "25%",
+      "50%",
+      "75%"
+    ],
+    "ans": 2,
+    "explanation": "Cross: Tt × tt. Gametes from Tt: T and t; from tt: t only. Offspring: Tt (tall) and tt (dwarf) in 1:1 ratio. Thus, 50% are dwarf.",
+    "subject": "Botany",
+    "difficulty": "Medium",
+    "type": "application"
+  },
+  {
+    "q": "A projectile is fired with velocity 20 m/s at an angle of 30° to the horizontal. Calculate its maximum height (g = 10 m/s^2).",
+    "opts": [
+      "2.5 m",
+      "5 m",
+      "10 m",
+      "20 m"
+    ],
+    "ans": 1,
+    "explanation": "Vertical component = u sinθ = 20 × 0.5 = 10 m/s. Maximum height H = u^2 sin^2θ / (2g) = (100)/(20) = 5 m.",
+    "subject": "Physics",
+    "difficulty": "Hard",
+    "type": "timeTaking"
+  },
+  {
+    "q": "Which of the following is a characteristic feature of phylum Annelida?",
+    "opts": [
+      "Radial symmetry",
+      "Pseudocoelom",
+      "Metameric segmentation",
+      "Chitinous exoskeleton"
+    ],
+    "ans": 2,
+    "explanation": "Annelids exhibit true metameric segmentation. Radial symmetry is seen in Cnidaria, pseudocoelom in Aschelminthes, and chitinous exoskeleton in Arthropoda.",
+    "subject": "Zoology",
+    "difficulty": "Easy",
+    "type": "conceptual"
+  },
+  {
+    "q": "During C4 pathway, the first stable product formed is:",
+    "opts": [
+      "3-phosphoglycerate",
+      "Ribulose bisphosphate",
+      "Oxaloacetic acid",
+      "Malic acid"
+    ],
+    "ans": 2,
+    "explanation": "In C4 plants, CO2 combines with PEP to form oxaloacetic acid (OAA), the first stable 4-carbon compound. 3-PGA is first product in C3 plants.",
+    "subject": "Botany",
+    "difficulty": "Very Hard",
+    "type": "conceptual"
+  },
+  {
+    "q": "A wire of resistance R is stretched to double its original length. What will be its new resistance?",
+    "opts": [
+      "R/2",
+      "R",
+      "2R",
+      "4R"
+    ],
+    "ans": 3,
+    "explanation": "When length doubles, area becomes half (volume constant). R ∝ L/A. New resistance = (2L)/(A/2) = 4(L/A) = 4R.",
+    "subject": "Physics",
+    "difficulty": "Very Hard",
+    "type": "application"
+  },
+  {
+    "q": "For the reaction 2A + B → Products, the rate law is found to be Rate = k[A]^2[B]. The overall order of reaction is:",
+    "opts": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "ans": 2,
+    "explanation": "Overall order = sum of powers of concentration terms = 2 + 1 = 3. Hence third order reaction.",
+    "subject": "Chemistry",
+    "difficulty": "Very Hard",
+    "type": "conceptual"
+  },
+  {
+    "q": "In human heart, the bicuspid valve is present between:",
+    "opts": [
+      "Right atrium and right ventricle",
+      "Left atrium and left ventricle",
+      "Right ventricle and pulmonary artery",
+      "Left ventricle and aorta"
+    ],
+    "ans": 1,
+    "explanation": "The bicuspid (mitral) valve is between left atrium and left ventricle. Tricuspid is on the right side. Semilunar valves are at arteries.",
+    "subject": "Zoology",
+    "difficulty": "Very Hard",
+    "type": "confusing"
+  },
+  {
+    "q": "In Hardy-Weinberg equilibrium, if frequency of recessive allele is 0.2, what is frequency of heterozygous individuals?",
+    "opts": [
+      "0.16",
+      "0.32",
+      "0.48",
+      "0.64"
+    ],
+    "ans": 1,
+    "explanation": "q = 0.2, so p = 0.8. Heterozygous frequency = 2pq = 2 × 0.8 × 0.2 = 0.32.",
+    "subject": "Zoology",
+    "difficulty": "Very Hard",
+    "type": "timeTaking"
+  },
+  {
+    "q": "The number of σ and π bonds in benzene respectively are:",
+    "opts": [
+      "12 σ, 3 π",
+      "6 σ, 3 π",
+      "12 σ, 6 π",
+      "18 σ, 3 π"
+    ],
+    "ans": 0,
+    "explanation": "Benzene has 6 C–C sigma bonds and 6 C–H sigma bonds = 12 σ bonds. It has 3 π bonds (delocalized).",
+    "subject": "Chemistry",
+    "difficulty": "Very Hard",
+    "type": "conceptual"
+  },
+  {
+    "q": "Photorespiration occurs in which cell organelles?",
+    "opts": [
+      "Chloroplast only",
+      "Chloroplast and mitochondria",
+      "Chloroplast, peroxisome and mitochondria",
+      "Peroxisome only"
+    ],
+    "ans": 2,
+    "explanation": "Photorespiration involves chloroplast (RuBisCO oxygenation), peroxisome (glycolate oxidation), and mitochondria (glycine conversion to serine).",
+    "subject": "Botany",
+    "difficulty": "Very Hard",
+    "type": "conceptual"
+  },
+  {
+    "q": "Two capacitors 3 μF and 6 μF are connected in series. The equivalent capacitance is:",
+    "opts": [
+      "9 μF",
+      "2 μF",
+      "4 μF",
+      "18 μF"
+    ],
+    "ans": 1,
+    "explanation": "1/Ceq = 1/3 + 1/6 = (2+1)/6 = 3/6 = 1/2. Thus Ceq = 2 μF.",
+    "subject": "Physics",
+    "difficulty": "Very Hard",
+    "type": "timeTaking"
+  },
+  {
+    "q": "Which of the following complexes shows geometrical isomerism?",
+    "opts": [
+      "[Ni(CO)4]",
+      "[Pt(NH3)2Cl2]",
+      "[Fe(CN)6]3−",
+      "[Zn(NH3)4]2+"
+    ],
+    "ans": 1,
+    "explanation": "[Pt(NH3)2Cl2] is square planar and shows cis-trans isomerism. Others are tetrahedral or octahedral symmetrical without geometrical isomerism in given form.",
+    "subject": "Chemistry",
+    "difficulty": "Very Hard",
+    "type": "application"
+  },
+  {
+    "q": "Which layer of dicot stem gives rise to secondary growth?",
+    "opts": [
+      "Epidermis",
+      "Cortex",
+      "Vascular cambium",
+      "Pith"
+    ],
+    "ans": 2,
+    "explanation": "Vascular cambium is responsible for secondary growth producing secondary xylem and phloem.",
+    "subject": "Botany",
+    "difficulty": "Very Hard",
+    "type": "conceptual"
+  },
+  {
+    "q": "The hormone responsible for milk ejection reflex is:",
+    "opts": [
+      "Prolactin",
+      "Oxytocin",
+      "Estrogen",
+      "Progesterone"
+    ],
+    "ans": 1,
+    "explanation": "Oxytocin causes contraction of myoepithelial cells leading to milk ejection. Prolactin stimulates milk production.",
+    "subject": "Zoology",
+    "difficulty": "Very Hard",
+    "type": "conceptual"
+  },
+  {
+    "q": "A block of mass 5 kg slides down a frictionless incline of height 20 m. Calculate its velocity at bottom (g = 10 m/s^2).",
+    "opts": [
+      "10 m/s",
+      "20 m/s",
+      "30 m/s",
+      "40 m/s"
+    ],
+    "ans": 1,
+    "explanation": "Using conservation of energy: mgh = (1/2)mv^2. 5×10×20 = (1/2)×5×v^2. 1000 = (2.5)v^2. v^2 = 400. v = 20 m/s.",
+    "subject": "Physics",
+    "difficulty": "Very Hard",
+    "type": "application"
+  },
+  {
+    "q": "Which of the following statements about SN1 reaction is correct?",
+    "opts": [
+      "Rate depends on both substrate and nucleophile",
+      "Carbocation intermediate is formed",
+      "It proceeds with inversion of configuration only",
+      "It is favored by strong nucleophile in aprotic solvent"
+    ],
+    "ans": 1,
+    "explanation": "SN1 reaction proceeds via carbocation intermediate and rate depends only on substrate concentration. It gives racemization and is favored by polar protic solvents.",
+    "subject": "Chemistry",
+    "difficulty": "Very Hard",
+    "type": "conceptual"
   }
 ]
