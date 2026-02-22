@@ -1,282 +1,282 @@
 [
   {
-    "q": "Which of the following plant hormones is primarily responsible for apical dominance in higher plants?",
+    "q": "A researcher isolates a mutant eukaryotic cell line that exhibits continuous, uncontrolled cell division but fails to form a proper metaphase plate. Upon molecular analysis, it is discovered that the cohesin complex remains intact even after the Spindle Assembly Checkpoint (SAC) is biologically satisfied. Which of the following specific mutations or biochemical failures most accurately explains this precise cellular behavior?",
     "opts": [
-      "Auxin",
-      "Cytokinin",
-      "Gibberellin",
-      "Ethylene"
+      "A missense mutation in the APC/C (Anaphase-Promoting Complex) preventing its binding to Cdc20.",
+      "Constitutive overactivation of the separase enzyme leading to premature sister chromatid separation.",
+      "A null mutation in the gene encoding securin, rendering it incapable of inhibiting separase.",
+      "A structural modification in the MAD2 protein making it unable to inhibit the CDC20-APC/C complex."
     ],
     "ans": 0,
-    "explanation": "Auxin, mainly indole-3-acetic acid (IAA), is synthesized in the shoot apex and suppresses the growth of lateral buds, resulting in apical dominance. Cytokinin promotes lateral bud growth, gibberellin promotes stem elongation, and ethylene is involved in fruit ripening and stress responses.",
+    "explanation": "The Spindle Assembly Checkpoint (SAC) usually inhibits APC/C until all chromosomes are aligned. Once satisfied, APC/C binds to Cdc20, ubiquitylating securin, which then releases separase to cleave cohesin. If cohesin remains intact despite SAC satisfaction, the failure lies downstream of SAC but upstream of cohesin cleavage. A mutation in APC/C preventing Cdc20 binding directly stops the destruction of securin, keeping separase inactive and cohesin intact.",
     "subject": "Botany",
-    "difficulty": "Easy",
-    "type": "oneLine"
-  },
-  {
-    "q": "The functional unit of kidney responsible for urine formation is:",
-    "opts": [
-      "Neuron",
-      "Nephron",
-      "Alveolus",
-      "Sarcomere"
-    ],
-    "ans": 1,
-    "explanation": "The nephron is the structural and functional unit of the kidney. It consists of Bowman's capsule, glomerulus, PCT, loop of Henle, DCT, and collecting duct. Neuron is the unit of nervous system, alveolus is for gas exchange, and sarcomere is the unit of muscle contraction.",
-    "subject": "Zoology",
-    "difficulty": "Easy",
-    "type": "oneLine"
-  },
-  {
-    "q": "A body of mass 2 kg is moving with a velocity of 3 m/s. What is its kinetic energy?",
-    "opts": [
-      "3 J",
-      "6 J",
-      "9 J",
-      "18 J"
-    ],
-    "ans": 2,
-    "explanation": "Kinetic energy = (1/2)mv^2 = (1/2) × 2 × (3)^2 = 1 × 9 = 9 J. Hence, the correct answer is 9 J.",
-    "subject": "Physics",
-    "difficulty": "Easy",
-    "type": "direct"
-  },
-  {
-    "q": "Which quantum number determines the shape of an orbital?",
-    "opts": [
-      "Principal quantum number (n)",
-      "Azimuthal quantum number (l)",
-      "Magnetic quantum number (m)",
-      "Spin quantum number (s)"
-    ],
-    "ans": 1,
-    "explanation": "The azimuthal quantum number (l) determines the shape of the orbital (s, p, d, f). Principal quantum number determines size and energy level, magnetic quantum number determines orientation, and spin quantum number determines spin direction.",
-    "subject": "Chemistry",
-    "difficulty": "Medium",
+    "difficulty": "Very Hard",
     "type": "conceptual"
   },
   {
-    "q": "In a cross between a heterozygous tall pea plant (Tt) and a dwarf plant (tt), what percentage of the offspring is expected to be dwarf?",
+    "q": "In a pulse-chase autoradiography experiment utilizing 3H-leucine to track protein synthesis and transport, a specific integral membrane protein is observed moving from the Rough Endoplasmic Reticulum to the cis-Golgi, then trans-Golgi, and finally to the plasma membrane. If a drug that specifically inhibits the functioning of the COP-II vesicular coat is introduced 5 minutes after the pulse, what will be the most immediate and profound consequence on the cellular endomembrane system?",
     "opts": [
-      "0%",
-      "25%",
-      "50%",
-      "75%"
+      "Accumulation of the radiolabeled protein within the RER and a gradual depletion of resident proteins in the cis-Golgi network.",
+      "Premature fusion of the RER vesicles directly with the plasma membrane, bypassing the Golgi apparatus entirely.",
+      "Complete cessation of all anterograde and retrograde vesicular transport, causing immediate collapse of the entire Golgi apparatus.",
+      "Accumulation of the radiolabeled protein in the trans-Golgi network and failure to form secretory vesicles."
     ],
-    "ans": 2,
-    "explanation": "Cross: Tt × tt. Gametes from Tt: T and t; from tt: t only. Offspring: Tt (tall) and tt (dwarf) in 1:1 ratio. Thus, 50% are dwarf.",
+    "ans": 0,
+    "explanation": "COP-II coated vesicles are strictly responsible for the anterograde transport of proteins from the Rough Endoplasmic Reticulum (RER) to the cis-Golgi network. Inhibiting COP-II directly prevents this forward transport, causing newly synthesized proteins to accumulate in the RER. Consequently, the cis-Golgi will be depleted of its normal incoming protein supply.",
     "subject": "Botany",
-    "difficulty": "Medium",
+    "difficulty": "Very Hard",
     "type": "application"
   },
   {
-    "q": "A projectile is fired with velocity 20 m/s at an angle of 30° to the horizontal. Calculate its maximum height (g = 10 m/s^2).",
+    "q": "Consider a diploid organism (2n=14). During microsporogenesis, a nondisjunction event occurs exclusively for chromosome 4 during Anaphase I of a single primary microsporocyte, followed by a completely normal Meiosis II. Subsequently, all resulting microspores mature into pollen grains and participate in fertilization with entirely normal ova. What are the expected genomic compositions of the resulting zygotes?",
     "opts": [
-      "2.5 m",
-      "5 m",
-      "10 m",
-      "20 m"
+      "Two zygotes will be trisomic (2n+1=15) and two will be monosomic (2n-1=13).",
+      "One zygote will be trisomic (2n+1=15), one monosomic (2n-1=13), and two will be normal (2n=14).",
+      "All four zygotes will exhibit aneuploidy: two trisomic for chromosome 4 and two monosomic for chromosome 4.",
+      "Four zygotes will be formed, all containing 2n=14 chromosomes but two carrying a lethal mutation."
     ],
-    "ans": 1,
-    "explanation": "Vertical component = u sinθ = 20 × 0.5 = 10 m/s. Maximum height H = u^2 sin^2θ / (2g) = (100)/(20) = 5 m.",
-    "subject": "Physics",
-    "difficulty": "Hard",
+    "ans": 2,
+    "explanation": "When nondisjunction occurs in Meiosis I, homologous chromosomes fail to separate. Consequently, one secondary meiocyte receives both homologs of chromosome 4, and the other receives none. After normal Meiosis II, two gametes will have n+1 chromosomes and two gametes will have n-1 chromosomes. Fertilization of these four aberrant gametes with normal ova (n) results in two trisomic (2n+1) and two monosomic (2n-1) zygotes.",
+    "subject": "Botany",
+    "difficulty": "Very Hard",
     "type": "timeTaking"
   },
   {
-    "q": "Which of the following is a characteristic feature of phylum Annelida?",
+    "q": "The DNA content of a fully mature, non-dividing mesophyll cell of a higher plant is measured to be 24 pg, and it contains 12 chromosomes. A meristematic cell from the root tip of the same plant is traversing the cell cycle. Determine the precise DNA content and chromosome number in a single cell exactly at the Anaphase stage of mitosis.",
     "opts": [
-      "Radial symmetry",
-      "Pseudocoelom",
-      "Metameric segmentation",
-      "Chitinous exoskeleton"
+      "DNA content: 48 pg; Chromosome number: 24",
+      "DNA content: 48 pg; Chromosome number: 12",
+      "DNA content: 24 pg; Chromosome number: 24",
+      "DNA content: 24 pg; Chromosome number: 12"
     ],
-    "ans": 2,
-    "explanation": "Annelids exhibit true metameric segmentation. Radial symmetry is seen in Cnidaria, pseudocoelom in Aschelminthes, and chitinous exoskeleton in Arthropoda.",
-    "subject": "Zoology",
-    "difficulty": "Easy",
-    "type": "conceptual"
-  },
-  {
-    "q": "During C4 pathway, the first stable product formed is:",
-    "opts": [
-      "3-phosphoglycerate",
-      "Ribulose bisphosphate",
-      "Oxaloacetic acid",
-      "Malic acid"
-    ],
-    "ans": 2,
-    "explanation": "In C4 plants, CO2 combines with PEP to form oxaloacetic acid (OAA), the first stable 4-carbon compound. 3-PGA is first product in C3 plants.",
+    "ans": 0,
+    "explanation": "A mature mesophyll cell is a diploid (2n) cell in the G0/G1 phase. Thus, 2n = 12 chromosomes and the 2C DNA content is 24 pg. When a root tip meristematic cell enters the S phase, its DNA replicates, making the DNA content 4C = 48 pg, but the chromosome number remains 2n=12. During Anaphase of mitosis, sister chromatids separate and move to opposite poles, effectively doubling the number of independent chromosomes in the cell temporarily to 4n = 24. The total DNA content in the entire cell (before cytokinesis) remains at the replicated level of 48 pg.",
     "subject": "Botany",
     "difficulty": "Very Hard",
     "type": "conceptual"
   },
   {
-    "q": "A wire of resistance R is stretched to double its original length. What will be its new resistance?",
+    "q": "While studying the endomembrane system, a biochemist observes the glycosylation of newly synthesized proteins. A specific enzyme, N-acetylglucosamine-1-phosphotransferase, is found to be deficient in a cell line. Which of the following cellular anomalies is the direct, most severe, and immediate consequence of this specific enzymatic failure?",
     "opts": [
-      "R/2",
-      "R",
-      "2R",
-      "4R"
+      "Failure of O-linked glycosylation in the medial-Golgi, leading to unstructured proteoglycans.",
+      "Inability to tag acid hydrolases with mannose-6-phosphate, resulting in their secretion instead of lysosomal targeting.",
+      "Defective cleavage of the signal peptide in the RER lumen, causing transmembrane proteins to misfold.",
+      "Failure of vesicles to dock and fuse with the cis-Golgi due to a lack of specific v-SNARE proteins."
     ],
-    "ans": 3,
-    "explanation": "When length doubles, area becomes half (volume constant). R ∝ L/A. New resistance = (2L)/(A/2) = 4(L/A) = 4R.",
-    "subject": "Physics",
+    "ans": 1,
+    "explanation": "N-acetylglucosamine-1-phosphotransferase is the crucial enzyme required in the cis-Golgi network to add the mannose-6-phosphate (M6P) tag to nascent acid hydrolases. This M6P tag is the specific sorting signal recognized by receptors in the trans-Golgi network that direct these enzymes to lysosomes. Deficiency in this enzyme causes lysosomal enzymes to default to the secretory pathway, leaving lysosomes empty of hydrolases and full of undegraded substrates.",
+    "subject": "Botany",
+    "difficulty": "Very Hard",
+    "type": "lengthy"
+  },
+  {
+    "q": "Consider three distinct marine invertebrates: Organism X exhibits a water vascular system and bipinnaria larva; Organism Y shows a specialized ciliated feeding structure called a lophophore and is entirely sessile; Organism Z possesses a stomochord, gill slits, and a tornaria larva. Based on the most robust and current phylogenetic models of deuterostome evolution, which of the following statements correctly identifies the precise evolutionary relationship among them?",
+    "opts": [
+      "X and Y are sister taxa belonging to Ambulacraria, while Z is a protostome showing convergent evolution.",
+      "X and Z form the Ambulacraria clade, exhibiting a closer evolutionary affinity to each other than either does to chordates, while Y is a lophophorate protostome.",
+      "Z is a basal chordate bridging the evolutionary gap between X (Echinodermata) and Y (Hemichordata).",
+      "Y and Z are enterocoelomate deuterostomes, while X is a schizocoelomate, indicating a paraphyletic origin of deuterostomes."
+    ],
+    "ans": 1,
+    "explanation": "Organism X (Echinodermata - bipinnaria larva) and Organism Z (Hemichordata - tornaria larva) are closely related and form the sister clade 'Ambulacraria' within Deuterostomia. They are more closely related to each other than to Chordates. Organism Y (possessing a lophophore) belongs to Lophophorata, which are classified under Lophotrochozoa within Protostomia. Therefore, X and Z are Ambulacrarians, and Y is a protostome.",
+    "subject": "Zoology",
+    "difficulty": "Very Hard",
+    "type": "lengthy"
+  },
+  {
+    "q": "A clinical case involves a couple experiencing secondary infertility. Thorough diagnostic workup reveals that the female partner has normal ovarian reserve, regular ovulatory cycles, and anatomically patent fallopian tubes, but her cervical mucus is highly viscous and aggressively hostile to sperm, completely impeding their progress. The male partner has a normal spermiogram with excellent motility, normal morphology, and a sperm count of 85 million per mL. Which of the following Assisted Reproductive Technologies (ART) is the most scientifically sound, least invasive, and most medically appropriate primary intervention?",
+    "opts": [
+      "Intracytoplasmic Sperm Injection (ICSI) coupled with In Vitro Fertilization (IVF).",
+      "Gamete Intra-Fallopian Transfer (GIFT) via laparoscopy.",
+      "Intra-Uterine Insemination (IUI) following proper sperm washing and capacitation.",
+      "Zygote Intra-Fallopian Transfer (ZIFT) to bypass the cervical barrier."
+    ],
+    "ans": 2,
+    "explanation": "The specific anatomical barrier here is strictly the hostile cervical mucus. The female has regular ovulation and patent fallopian tubes, and the male has normal, high-quality sperm. Intra-Uterine Insemination (IUI) is the exact, least invasive, and most direct solution because it physically bypasses the cervical mucus barrier by depositing properly washed and capacitated sperm directly into the uterine cavity, allowing natural fertilization in the ampulla.",
+    "subject": "Zoology",
     "difficulty": "Very Hard",
     "type": "application"
   },
   {
-    "q": "For the reaction 2A + B → Products, the rate law is found to be Rate = k[A]^2[B]. The overall order of reaction is:",
+    "q": "Which of the following complex anatomical and physiological feature sets accurately differentiates the class Osteichthyes from Chondrichthyes while accounting for the exceptional physiological adaptations seen in typical marine environments?",
     "opts": [
-      "1",
-      "2",
-      "3",
-      "4"
-    ],
-    "ans": 2,
-    "explanation": "Overall order = sum of powers of concentration terms = 2 + 1 = 3. Hence third order reaction.",
-    "subject": "Chemistry",
-    "difficulty": "Very Hard",
-    "type": "conceptual"
-  },
-  {
-    "q": "In human heart, the bicuspid valve is present between:",
-    "opts": [
-      "Right atrium and right ventricle",
-      "Left atrium and left ventricle",
-      "Right ventricle and pulmonary artery",
-      "Left ventricle and aorta"
+      "Osteichthyes consistently utilize urea retention for osmoregulation, possess an operculum, and exhibit internal fertilization.",
+      "Chondrichthyes lack a swim bladder resulting in obligate continuous swimming, possess a spiral valve in the intestine to increase surface area, and lack an operculum, whereas Osteichthyes generally possess an operculum and a swim bladder.",
+      "Osteichthyes exhibit a heterocercal tail fin, placoid scales, and a cloaca, whereas Chondrichthyes have a homocercal tail fin, cycloid/ctenoid scales, and separate anal openings.",
+      "Chondrichthyes strictly possess four pairs of gills covered by an operculum, exhibit exclusively oviparous reproduction, and have a three-chambered heart."
     ],
     "ans": 1,
-    "explanation": "The bicuspid (mitral) valve is between left atrium and left ventricle. Tricuspid is on the right side. Semilunar valves are at arteries.",
+    "explanation": "Chondrichthyes (cartilaginous fishes) fundamentally lack a swim bladder (necessitating constant swimming to avoid sinking), lack an operculum (gill cover), and have a specialized spiral valve in their intestine. Osteichthyes (bony fishes) typically possess an operculum covering their gills and a swim bladder for buoyancy. Option 1 is incorrect because Chondrichthyes, not Osteichthyes, generally retain urea for osmoregulation.",
     "subject": "Zoology",
     "difficulty": "Very Hard",
     "type": "confusing"
   },
   {
-    "q": "In Hardy-Weinberg equilibrium, if frequency of recessive allele is 0.2, what is frequency of heterozygous individuals?",
+    "q": "A specific combined oral contraceptive pill contains synthetic estrogen and progestin. A woman inadvertently misses taking her pill for three consecutive days precisely during the second week of her 28-day regimen. Physiologically, which of the following is the most immediate and critical neuroendocrine cascade that will occur as a direct result of this missed dosage?",
     "opts": [
-      "0.16",
-      "0.32",
-      "0.48",
-      "0.64"
+      "A sudden, massive surge in Progesterone secretion from the corpus luteum due to the lack of exogenous inhibition, leading to pseudo-pregnancy.",
+      "A rapid decline in systemic estrogen and progestin levels, triggering an acute withdrawal of negative feedback on the hypothalamus, potentially resulting in GnRH release, an LH surge, and breakthrough ovulation.",
+      "Immediate shedding of the stratum basalis of the endometrium due to the rapid drop in synthetic hormones, causing intense, prolonged withdrawal bleeding.",
+      "Irreversible atrophy of the anterior pituitary gonadotrophs, rendering the woman temporarily infertile for the remainder of the cycle regardless of subsequent pill intake."
     ],
     "ans": 1,
-    "explanation": "q = 0.2, so p = 0.8. Heterozygous frequency = 2pq = 2 × 0.8 × 0.2 = 0.32.",
+    "explanation": "Combined oral contraceptive pills work primarily by exerting continuous negative feedback on the hypothalamus and anterior pituitary, inhibiting the release of GnRH, LH, and FSH. Missing pills for three consecutive days causes a sharp drop in blood levels of synthetic estrogen and progestin. This removes the negative feedback inhibition, allowing the hypothalamus to secrete GnRH, which in turn causes the anterior pituitary to secrete FSH and LH, potentially triggering an LH surge and breakthrough ovulation.",
+    "subject": "Zoology",
+    "difficulty": "Very Hard",
+    "type": "conceptual"
+  },
+  {
+    "q": "Trace the exact pathway of water flow through the complex canal system of a leuconoid sponge (Porifera), identifying the correct sequence of specialized cellular structures and anatomical cavities.",
+    "opts": [
+      "Ostia -> Incurrent Canal -> Prosopyle -> Choanocyte-lined Flagellated Chamber -> Apopyle -> Excurrent Canal -> Spongocoel -> Osculum",
+      "Ostia -> Spongocoel -> Prosopyle -> Radial Canal lined with choanocytes -> Apopyle -> Osculum",
+      "Dermal Pores -> Incurrent Canal -> Prosopyle -> Flagellated Chamber -> Apopyle -> Excurrent Canal -> Osculum (bypassing a distinct spongocoel)",
+      "Ostia -> Incurrent Canal -> Apopyle -> Flagellated Chamber -> Prosopyle -> Excurrent Canal -> Osculum"
+    ],
+    "ans": 2,
+    "explanation": "The leuconoid canal system is the most complex in sponges. Water enters through dermal ostia into incurrent canals. It then passes through prosopyles into numerous small, rounded, choanocyte-lined flagellated chambers. From there, water exits via apopyles into excurrent canals. In highly developed leuconoid sponges, the excurrent canals merge and lead directly to the osculum; the central spongocoel is significantly reduced or completely absent.",
     "subject": "Zoology",
     "difficulty": "Very Hard",
     "type": "timeTaking"
   },
   {
-    "q": "The number of σ and π bonds in benzene respectively are:",
+    "q": "An equiconvex lens of glass (refractive index = 1.5) has a focal length of 20 cm in air. It is placed in contact with a thin concavo-plane lens made of a transparent liquid. The liquid lens has its plane surface on the right. When a point object is placed at a distance of 15 cm on the principal axis of the combination, its virtual image is formed at a distance of 30 cm on the same side. Find the precise refractive index of the liquid.",
     "opts": [
-      "12 σ, 3 π",
-      "6 σ, 3 π",
-      "12 σ, 6 π",
-      "18 σ, 3 π"
+      "1.33",
+      "1.45",
+      "1.55",
+      "1.63"
     ],
     "ans": 0,
-    "explanation": "Benzene has 6 C–C sigma bonds and 6 C–H sigma bonds = 12 σ bonds. It has 3 π bonds (delocalized).",
-    "subject": "Chemistry",
-    "difficulty": "Very Hard",
-    "type": "conceptual"
-  },
-  {
-    "q": "Photorespiration occurs in which cell organelles?",
-    "opts": [
-      "Chloroplast only",
-      "Chloroplast and mitochondria",
-      "Chloroplast, peroxisome and mitochondria",
-      "Peroxisome only"
-    ],
-    "ans": 2,
-    "explanation": "Photorespiration involves chloroplast (RuBisCO oxygenation), peroxisome (glycolate oxidation), and mitochondria (glycine conversion to serine).",
-    "subject": "Botany",
-    "difficulty": "Very Hard",
-    "type": "conceptual"
-  },
-  {
-    "q": "Two capacitors 3 μF and 6 μF are connected in series. The equivalent capacitance is:",
-    "opts": [
-      "9 μF",
-      "2 μF",
-      "4 μF",
-      "18 μF"
-    ],
-    "ans": 1,
-    "explanation": "1/Ceq = 1/3 + 1/6 = (2+1)/6 = 3/6 = 1/2. Thus Ceq = 2 μF.",
+    "explanation": "For the glass lens: 1/fg = (1.5 - 1)(2/R) -> 1/20 = 0.5(2/R) -> R = 20 cm. The liquid lens is concavo-plane with radius R = -20 cm (to fit the convex lens) and infinity. Its focal length fl is given by 1/fl = (ul - 1)(-1/20 - 1/infinity) = -(ul - 1)/20. For the combination, u = -15 cm and v = -30 cm. The equivalent focal length F is 1/F = 1/v - 1/u = -1/30 - (-1/15) = 1/30 -> F = 30 cm. Since 1/F = 1/fg + 1/fl, we get 1/30 = 1/20 + 1/fl -> 1/fl = 1/30 - 1/20 = -1/60. Equating this to the liquid lens formula: -(ul - 1)/20 = -1/60 -> ul - 1 = 20/60 = 1/3 -> ul = 4/3 or approximately 1.33.",
     "subject": "Physics",
     "difficulty": "Very Hard",
     "type": "timeTaking"
   },
   {
-    "q": "Which of the following complexes shows geometrical isomerism?",
+    "q": "In a Young's Double Slit Experiment, the slits are separated by d = 1 mm and the screen is placed at a distance D = 1 m from the slits. The setup is illuminated by monochromatic light of wavelength 500 nm. A thin glass plate of thickness t = 2.0 um and refractive index 1.5 is introduced in front of the upper slit. Simultaneously, the entire apparatus is immersed in a clear liquid of refractive index 4/3. Determine the exact new position of the central maximum on the screen relative to the geometric center of the screen.",
     "opts": [
-      "[Ni(CO)4]",
-      "[Pt(NH3)2Cl2]",
-      "[Fe(CN)6]3−",
-      "[Zn(NH3)4]2+"
-    ],
-    "ans": 1,
-    "explanation": "[Pt(NH3)2Cl2] is square planar and shows cis-trans isomerism. Others are tetrahedral or octahedral symmetrical without geometrical isomerism in given form.",
-    "subject": "Chemistry",
-    "difficulty": "Very Hard",
-    "type": "application"
-  },
-  {
-    "q": "Which layer of dicot stem gives rise to secondary growth?",
-    "opts": [
-      "Epidermis",
-      "Cortex",
-      "Vascular cambium",
-      "Pith"
+      "0.5 mm upwards",
+      "0.75 mm downwards",
+      "0.25 mm upwards",
+      "1.5 mm upwards"
     ],
     "ans": 2,
-    "explanation": "Vascular cambium is responsible for secondary growth producing secondary xylem and phloem.",
-    "subject": "Botany",
+    "explanation": "When immersed in liquid, the path difference introduced by the glass plate changes. The relative refractive index of glass with respect to the liquid is u_rel = 1.5 / (4/3) = 1.125. The effective optical path difference introduced is dx = (u_rel - 1)t. The shift of the central maximum on the screen is y = (D/d) * (u_rel - 1)t. Substituting the values: y = (1 / 10^-3) * (1.125 - 1) * 2.0 * 10^-6 = 10^3 * 0.125 * 2.0 * 10^-6 = 0.25 * 10^-3 m = 0.25 mm. Since the plate is in front of the upper slit, the shift is upwards.",
+    "subject": "Physics",
     "difficulty": "Very Hard",
-    "type": "conceptual"
+    "type": "lengthy"
   },
   {
-    "q": "The hormone responsible for milk ejection reflex is:",
+    "q": "A capillary tube of radius r = 0.2 mm is dipped vertically into a beaker containing water of surface tension T = 0.075 N/m and density = 1000 kg/m^3. The angle of contact is extremely small (assume 0 degrees). The entire setup is placed inside an elevator accelerating downwards at a = 4.9 m/s^2. If the capillary tube is then tilted at an angle of 60 degrees from the vertical, what is the exact length of the water column along the tube? (Assume g = 9.8 m/s^2)",
     "opts": [
-      "Prolactin",
-      "Oxytocin",
-      "Estrogen",
-      "Progesterone"
+      "7.65 cm",
+      "15.3 cm",
+      "30.6 cm",
+      "10.4 cm"
     ],
-    "ans": 1,
-    "explanation": "Oxytocin causes contraction of myoepithelial cells leading to milk ejection. Prolactin stimulates milk production.",
-    "subject": "Zoology",
-    "difficulty": "Very Hard",
-    "type": "conceptual"
-  },
-  {
-    "q": "A block of mass 5 kg slides down a frictionless incline of height 20 m. Calculate its velocity at bottom (g = 10 m/s^2).",
-    "opts": [
-      "10 m/s",
-      "20 m/s",
-      "30 m/s",
-      "40 m/s"
-    ],
-    "ans": 1,
-    "explanation": "Using conservation of energy: mgh = (1/2)mv^2. 5×10×20 = (1/2)×5×v^2. 1000 = (2.5)v^2. v^2 = 400. v = 20 m/s.",
+    "ans": 2,
+    "explanation": "The effective acceleration due to gravity in the descending elevator is g_eff = g - a = 9.8 - 4.9 = 4.9 m/s^2. The theoretical vertical height h of the liquid column is given by the ascent formula: h = (2T cos(theta)) / (r * density * g_eff) = (2 * 0.075 * 1) / (0.2 * 10^-3 * 1000 * 4.9) = 0.150 / 0.98 = 0.153 m = 15.3 cm. When the tube is tilted at an angle of 60 degrees from the vertical, the vertical height h remains constant. The length of the liquid column L along the tube is L = h / cos(60 degrees) = 15.3 cm / 0.5 = 30.6 cm.",
     "subject": "Physics",
     "difficulty": "Very Hard",
     "type": "application"
   },
   {
-    "q": "Which of the following statements about SN1 reaction is correct?",
+    "q": "Two identical solid spherical drops of a dense liquid, each of radius r, are falling through a viscous medium of coefficient of viscosity n and density d1. The density of the drop material is d2 (where d2 > d1). They are falling at their steady terminal velocity vT. If these two drops collide and coalesce to form a single larger spherical drop, what will be the new terminal velocity of the resulting combined drop in terms of the original terminal velocity vT?",
     "opts": [
-      "Rate depends on both substrate and nucleophile",
-      "Carbocation intermediate is formed",
-      "It proceeds with inversion of configuration only",
-      "It is favored by strong nucleophile in aprotic solvent"
+      "(2^(1/3)) * vT",
+      "(2^(2/3)) * vT",
+      "(4^(1/3)) * vT",
+      "2 * vT"
     ],
     "ans": 1,
-    "explanation": "SN1 reaction proceeds via carbocation intermediate and rate depends only on substrate concentration. It gives racemization and is favored by polar protic solvents.",
+    "explanation": "The terminal velocity of a spherical drop of radius r is given by Stokes' Law: vT = 2 * r^2 * (d2 - d1) * g / (9 * n). This demonstrates that terminal velocity is directly proportional to the square of the radius (vT proportional to r^2). When two identical drops of radius r coalesce to form a new drop of radius R, their volumes are conserved: (4/3)*pi*R^3 = 2 * (4/3)*pi*r^3, which yields R^3 = 2*r^3, so R = (2^(1/3)) * r. The new terminal velocity vT' will be proportional to R^2. Thus, vT' / vT = (R/r)^2 = ((2^(1/3))*r / r)^2 = 2^(2/3). Therefore, vT' = (2^(2/3)) * vT.",
+    "subject": "Physics",
+    "difficulty": "Very Hard",
+    "type": "conceptual"
+  },
+  {
+    "q": "In a single slit diffraction experiment, a light source emitting two wavelengths 400 nm and 600 nm is used. The slit width is a = 0.5 mm and the screen is at a distance D = 2.0 m. What is the absolute minimum distance from the central maximum on the screen where a bright fringe (maxima) of the 400 nm light exactly coincides with a completely dark fringe (minima) of the 600 nm light?",
+    "opts": [
+      "7.2 mm",
+      "4.8 mm",
+      "2.4 mm",
+      "9.6 mm"
+    ],
+    "ans": 2,
+    "explanation": "For single slit diffraction, the position of the n-th secondary maximum for wavelength 1 is y_max = (2n + 1) * L1 * D / (2a). The position of the m-th minimum for wavelength 2 is y_min = m * L2 * D / a. For coincidence, y_max = y_min. Therefore, (2n + 1) * L1 / 2 = m * L2 -> (2n + 1) * 400 = 2m * 600 -> 2n + 1 = 3m. We need the minimum integers n and m (>= 1). If m = 1, 2n + 1 = 3 -> n = 1. The first secondary maximum of 400 nm coincides with the first minimum of 600 nm. The distance is y = m * L2 * D / a = 1 * 600 * 10^-9 * 2.0 / (0.5 * 10^-3) = 2.4 * 10^-3 m = 2.4 mm.",
+    "subject": "Physics",
+    "difficulty": "Very Hard",
+    "type": "confusing"
+  },
+  {
+    "q": "One mole of a monoatomic ideal gas, initially at temperature T1 = 300 K and volume V1 = 10 L, undergoes a totally irreversible and sudden adiabatic expansion against a constant external pressure of 1 atm until its final volume becomes V2 = 20 L. Given that the gas constant R = 0.0821 L atm K^-1 mol^-1 and R = 8.314 J K^-1 mol^-1, what is the exact change in entropy of the universe for this specific process?",
+    "opts": [
+      "+1.83 J/K",
+      "+5.76 J/K",
+      "+3.42 J/K",
+      "Zero, because the process is adiabatic."
+    ],
+    "ans": 0,
+    "explanation": "For an adiabatic process, q = 0, so dS_surroundings = 0. Thus, dS_universe = dS_system. Using the first law for irreversible adiabatic expansion: dU = w -> n * Cv * (T2 - T1) = -Pext * (V2 - V1). For a monoatomic gas, Cv = (3/2)R. Thus, 1 * (3/2)R * (T2 - 300) = -1 * (20 - 10) = -10 L atm. Converting -10 L atm to Kelvin equivalent using R=0.0821: (3/2) * (T2 - 300) = -10 / 0.0821 = -121.8 -> T2 = 300 - 81.2 = 218.8 K. dS_sys = n * Cv * ln(T2/T1) + n * R * ln(V2/V1) = (3/2) * 8.314 * ln(218.8/300) + 8.314 * ln(20/10) = 12.47 * (-0.3156) + 8.314 * 0.693 = -3.935 + 5.761 = +1.826 J/K.",
+    "subject": "Chemistry",
+    "difficulty": "Very Hard",
+    "type": "timeTaking"
+  },
+  {
+    "q": "Applying the Molecular Orbital Theory (MOT) and meticulously considering the phenomenon of s-p mixing, evaluate the following diatomic species: N2+, O2-, C2, and NO+. Which of the following sequences represents the fundamentally correct order of their respective bond orders, and which among them is unequivocally diamagnetic in its ground state?",
+    "opts": [
+      "Bond Order: NO+ > N2+ > C2 > O2-; Diamagnetic: NO+ and C2",
+      "Bond Order: NO+ = N2+ > C2 > O2-; Diamagnetic: Only C2",
+      "Bond Order: NO+ > C2 > N2+ > O2-; Diamagnetic: NO+ and O2-",
+      "Bond Order: N2+ > NO+ > O2- > C2; Diamagnetic: Only NO+"
+    ],
+    "ans": 0,
+    "explanation": "1) NO+ has 14 electrons. Bond order = (10 - 4)/2 = 3.0. All electrons paired -> diamagnetic. 2) N2+ has 13 electrons. Bond order = (9 - 4)/2 = 2.5. One unpaired electron -> paramagnetic. 3) C2 has 12 electrons. Due to s-p mixing, pi(2p) is lower than sigma(2pz). Bond order = (8 - 4)/2 = 2.0. Zero unpaired electrons -> diamagnetic. 4) O2- has 17 electrons. Bond order = (10 - 7)/2 = 1.5. One unpaired electron in pi* -> paramagnetic. Order is 3.0 > 2.5 > 2.0 > 1.5, matching NO+ > N2+ > C2 > O2-. Diamagnetic are NO+ and C2.",
     "subject": "Chemistry",
     "difficulty": "Very Hard",
     "type": "conceptual"
+  },
+  {
+    "q": "The standard enthalpy of formation of solid BaCl2 is -858 kJ/mol. Given the following thermodynamic data: heat of sublimation of Barium is +175 kJ/mol, the first and second ionization energies of Barium are +503 kJ/mol and +965 kJ/mol respectively, the bond dissociation enthalpy of Cl2 gas is +242 kJ/mol, and the electron gain enthalpy of Chlorine atom is -349 kJ/mol. Calculate the precise lattice enthalpy of BaCl2(s) using the Born-Haber cycle.",
+    "opts": [
+      "-2045 kJ/mol",
+      "+2045 kJ/mol",
+      "+1696 kJ/mol",
+      "-1696 kJ/mol"
+    ],
+    "ans": 1,
+    "explanation": "According to the Born-Haber cycle: dHf = dH_sub(Ba) + IE1(Ba) + IE2(Ba) + dH_diss(Cl2) + 2 * dH_eg(Cl) + U_formation. Substitute the given values: -858 = 175 + 503 + 965 + 242 + 2(-349) + U_formation. Summing the terms: -858 = 1885 - 698 + U_formation -> -858 = 1187 + U_formation -> U_formation = -2045 kJ/mol. By IUPAC convention, Lattice Enthalpy is the energy required to break the lattice into gaseous ions (the reverse of formation), making it a positive value: +2045 kJ/mol.",
+    "subject": "Chemistry",
+    "difficulty": "Very Hard",
+    "type": "lengthy"
+  },
+  {
+    "q": "Consider the interhalogen compound IF7 and the complex ion [XeF5]-. Utilizing Valence Shell Electron Pair Repulsion (VSEPR) theory and hybridization concepts, mathematically determine the number of distinct 90-degree F-M-F (where M is the central atom) bond angles present in the ideal geometries of both species respectively.",
+    "opts": [
+      "IF7: 10; [XeF5]-: 0",
+      "IF7: 10; [XeF5]-: 5",
+      "IF7: 14; [XeF5]-: 0",
+      "IF7: 15; [XeF5]-: 10"
+    ],
+    "ans": 0,
+    "explanation": "In IF7, Iodine has 7 valence electrons, forms 7 bonds, 0 lone pairs. Hybridization is sp3d3, geometry is Pentagonal Bipyramidal. It has 5 equatorial and 2 axial F atoms. Each of the 2 axial F atoms forms 90-degree angles with all 5 equatorial F atoms. Total 90-degree angles = 2 * 5 = 10. In [XeF5]-, Xenon has 8+1=9 valence electrons, forms 5 bonds, leaving 2 lone pairs. Steric number = 7 (sp3d3). To minimize repulsion, the 2 lone pairs occupy axial positions, leaving the 5 F atoms in a planar pentagonal arrangement. F-Xe-F angles are only 72 degrees. There are no 90-degree angles.",
+    "subject": "Chemistry",
+    "difficulty": "Very Hard",
+    "type": "application"
+  },
+  {
+    "q": "The temperature dependence of the equilibrium constant Kp for a specific gaseous reaction is experimentally derived as ln(Kp) = 4.814 - (2059 / T). Assuming that the standard enthalpy of reaction and standard entropy of reaction are completely independent of temperature over the given range, compute the precise standard Gibbs free energy change (dG) for this reaction at exactly 298 K. (R = 8.314 J K^-1 mol^-1)",
+    "opts": [
+      "+5.19 kJ/mol",
+      "-5.19 kJ/mol",
+      "+17.1 kJ/mol",
+      "-11.9 kJ/mol"
+    ],
+    "ans": 0,
+    "explanation": "First, evaluate ln(Kp) at T = 298 K: ln(Kp) = 4.814 - (2059 / 298) = 4.814 - 6.909 = -2.095. The relationship between standard Gibbs free energy and equilibrium constant is given by the isotherm equation: dG = -R * T * ln(Kp). Substituting the values: dG = - (8.314 J K^-1 mol^-1) * (298 K) * (-2.095) = + (2477.572) * (2.095) = +5190.5 J/mol, which is +5.19 kJ/mol.",
+    "subject": "Chemistry",
+    "difficulty": "Very Hard",
+    "type": "application"
   }
 ]

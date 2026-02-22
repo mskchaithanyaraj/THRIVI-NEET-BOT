@@ -395,18 +395,52 @@ Each question object must have:
   "type": "lengthy/timeTaking/oneLine/confusing/conceptual/application"
 }
 
+**MATHEMATICAL NOTATION RULES (EXTREMELY IMPORTANT):**
+1. **NEVER use LaTeX, TeX, or any markup language for mathematical formulas**
+2. **ALL mathematical symbols MUST be written in plain text or Unicode**
+3. **Examples of acceptable formats:**
+   - Superscripts: Use Unicode (Ca²⁺, CO₂, H₂O, 10³, m²) or plain text (Ca2+, CO2, H2O, 10^3, m^2)
+   - Subscripts: Use Unicode (H₂O, CO₂, C₆H₁₂O₆) or plain text (H2O, CO2, C6H12O6)
+   - Greek letters: Use Unicode (α, β, γ, Δ, λ, μ, π, Σ) or spell out (alpha, beta, gamma, Delta, lambda, mu, pi, sigma)
+   - Fractions: Write as "3/4" or "0.75", not as complex notation
+   - Equations: Write linearly like "E = mc^2" or "PV = nRT"
+   - Chromosomes: Write as "2n = 12" or "n + 1" or "2n + 1"
+   - Concentration: Write as "10^6 per mL" or "1 million per mL"
+4. **VERIFY every option has actual text content - NO EMPTY OPTIONS**
+5. **For Physics/Chemistry with calculations:**
+   - Use simple format: "F = ma", "v = u + at"
+   - Numbers: "9.8 m/s^2", "3.0 × 10^8 m/s"
+   - Units: "20 cm", "1.5 g/mol", "300 K"
+
+**CORRECT FORMAT EXAMPLES:**
+Good Biology Option: "A diploid organism with 2n = 24 chromosomes"
+Good Chemistry Option: "The enthalpy change is -890 kJ/mol for complete combustion"
+Good Physics Option: "The velocity increases from 10 m/s to 25 m/s in 3 seconds"
+Bad Option: "The value is  ()" ← NEVER DO THIS (empty/incomplete)
+Bad Option: "$\\Delta H = -890$" ← NEVER DO THIS (LaTeX)
+
 **Quality Guidelines:**
 1. Questions should be NEET-standard with authentic medical entrance exam difficulty
 2. **Prioritize topics that appear frequently in NEET previous year papers and have high weightage**
 3. **Model questions after actual NEET exam patterns - use similar phrasing, complexity, and concept combinations**
 4. Options should be plausible and well-distributed (not obviously wrong)
-5. Explanations should be educational and help students learn, referencing NEET trends where applicable
-6. Physics/Chemistry: Include numerical problems, equations, and reactions that are NEET favorites
-7. Biology: Cover anatomy, physiology, taxonomy, genetics, ecology comprehensively - focus on NCERT-based high-yield topics
-8. Avoid ambiguous wording - questions should have ONE clear correct answer
-9. Use proper scientific terminology and nomenclature as per NEET standards
-10. For numerical questions, show calculation steps in explanation
-11. **Consider cross-topic integrations that NEET frequently tests (e.g., biomolecules + metabolism, mechanics + thermodynamics)**
+5. **CRITICAL: Every option MUST contain complete, readable text - NO EMPTY or PARTIAL options**
+6. Explanations should be educational and help students learn, referencing NEET trends where applicable
+7. Physics/Chemistry: Include numerical problems, equations, and reactions that are NEET favorites
+8. Biology: Cover anatomy, physiology, taxonomy, genetics, ecology comprehensively - focus on NCERT-based high-yield topics
+9. Avoid ambiguous wording - questions should have ONE clear correct answer
+10. Use proper scientific terminology and nomenclature as per NEET standards
+11. For numerical questions, show calculation steps in explanation (in plain text format)
+12. **Consider cross-topic integrations that NEET frequently tests (e.g., biomolecules + metabolism, mechanics + thermodynamics)**
+13. **BEFORE submitting, verify EVERY option in EVERY question has actual text content**
+
+**FINAL CHECKLIST (Verify before responding):**
+✓ All mathematical symbols are in plain text or Unicode (NO LaTeX)
+✓ Every option has complete, readable text (minimum 10 characters)
+✓ No empty strings, no placeholders like (), no missing formulas
+✓ All numerical values are clearly written (e.g., "20 cm", "1.5 mol/L")
+✓ Chemical formulas use simple notation (H2O, Ca2+, CO2)
+✓ Valid JSON format with no syntax errors
 
 **RESPOND WITH JSON ARRAY ONLY - NO OTHER TEXT**`;
 }
@@ -487,15 +521,119 @@ app.post("/save-questions", async (req, res) => {
     // Basic validation of question structure
     for (let i = 0; i < questions.length; i++) {
       const q = questions[i];
-      if (
-        !q.q ||
-        !Array.isArray(q.opts) ||
-        q.opts.length !== 4 ||
-        typeof q.ans !== "number"
-      ) {
+      if (!q.q || typeof q.q !== "string") {
         return res.json({
           success: false,
-          error: `Invalid question format at question ${i + 1}`,
+          error: `Question ${i + 1}: Missing or invalid question text`,
+        });
+      }
+
+      // Check for problematic patterns in question text
+      const qText = q.q.trim();
+      if (qText.includes(" ()") || qText.includes("() ")) {
+        return res.json({
+          success: false,
+          error: `Question ${i + 1}: Question contains empty parentheses - likely missing mathematical notation. Please use plain text like "2n = 12" instead of LaTeX.`,
+        });
+      }
+      if (qText.match(/\s+per\s+mL/i) && qText.match(/\(\s*\)\s+per/i)) {
+        return res.json({
+          success: false,
+          error: `Question ${i + 1}: Question has missing value before "per mL". Example: use "10^6 per mL" instead of "() per mL"`,
+        });
+      }
+
+      if (!Array.isArray(q.opts) || q.opts.length !== 4) {
+        return res.json({
+          success: false,
+          error: `Question ${i + 1}: Must have exactly 4 options`,
+        });
+      }
+
+      // Validate each option is a non-empty, meaningful string
+      for (let j = 0; j < q.opts.length; j++) {
+        const opt = q.opts[j];
+
+        // Check basic type and empty string
+        if (typeof opt !== "string") {
+          return res.json({
+            success: false,
+            error: `Question ${i + 1}, Option ${j + 1}: Not a string (found ${typeof opt})`,
+          });
+        }
+
+        const trimmedOpt = opt.trim();
+
+        // Check if empty after trimming
+        if (trimmedOpt === "") {
+          return res.json({
+            success: false,
+            error: `Question ${i + 1}, Option ${j + 1}: Empty option text`,
+          });
+        }
+
+        // Check minimum length (at least 2 characters)
+        if (trimmedOpt.length < 2) {
+          return res.json({
+            success: false,
+            error: `Question ${i + 1}, Option ${j + 1}: Option too short ("${trimmedOpt}") - minimum 2 characters`,
+          });
+        }
+
+        // Check for problematic patterns that indicate incomplete rendering
+        const problematicPatterns = [
+          { pattern: /^\(\)$/, desc: "only empty parentheses" },
+          { pattern: /^\s*\(\s*\)\s*$/, desc: "only empty parentheses" },
+          {
+            pattern: /\(\s*\)\s+and\s+\(\s*\)/i,
+            desc: "multiple empty parentheses (missing chromosome notation like '2n+1 and 2n-1')",
+          },
+          {
+            pattern: /trisomic\s+\(\s*\)/i,
+            desc: "trisomic with empty parentheses (should be like 'trisomic (2n+1)')",
+          },
+          {
+            pattern: /monosomic\s+\(\s*\)/i,
+            desc: "monosomic with empty parentheses (should be like 'monosomic (2n-1)')",
+          },
+          {
+            pattern: /containing\s+\(\s*\)\s+chromosomes/i,
+            desc: "missing chromosome count",
+          },
+          { pattern: /^\$+$/, desc: "only dollar signs (LaTeX remnant)" },
+          { pattern: /^\\+$/, desc: "only backslashes (LaTeX remnant)" },
+          { pattern: /^\s*\s*$/, desc: "only empty angle brackets" },
+          {
+            pattern: /\(\s*\)\s+per\s+mL/i,
+            desc: "missing value before 'per mL' (should be like '10^6 per mL')",
+          },
+          { pattern: /^\s*per\s+/i, desc: "starts with 'per' (missing value)" },
+          {
+            pattern: /\s{5,}/,
+            desc: "excessive whitespace (possible stripped content)",
+          },
+          { pattern: /^\s*\s*$/i, desc: "empty mu symbol placeholders" },
+        ];
+
+        for (const { pattern, desc } of problematicPatterns) {
+          if (pattern.test(trimmedOpt)) {
+            return res.json({
+              success: false,
+              error: `Question ${i + 1}, Option ${j + 1}: Invalid option format - ${desc}. Value: "${trimmedOpt.substring(0, 100)}"`,
+            });
+          }
+        }
+
+        // Log options for debugging (only first 60 chars)
+        console.log(
+          `Q${i + 1} Opt${j + 1}: "${trimmedOpt.substring(0, 60)}${trimmedOpt.length > 60 ? "..." : ""}"`,
+        );
+      }
+
+      if (typeof q.ans !== "number" || q.ans < 0 || q.ans > 3) {
+        return res.json({
+          success: false,
+          error: `Question ${i + 1}: Answer index must be 0-3`,
         });
       }
     }
@@ -585,31 +723,158 @@ app.post("/create-form", async (req, res) => {
       fs.readFileSync(path.join(__dirname, "questions.json")),
     );
 
+    console.log(`📋 Loaded ${questions.length} questions from file`);
+
     // Create question requests
-    const requests = questions.map((question, index) => ({
-      createItem: {
-        item: {
-          title: question.q,
-          questionItem: {
-            question: {
-              required: true,
-              choiceQuestion: {
-                type: "RADIO",
-                options: question.opts.map((opt) => ({ value: opt })),
-                shuffle: false,
-              },
-              grading: {
-                pointValue: 4,
-                correctAnswers: {
-                  answers: [{ value: question.opts[question.ans] }],
+    const requests = questions.map((question, index) => {
+      // Validate question text
+      const qText = question.q?.trim() || "";
+      if (!qText) {
+        throw new Error(`Question ${index + 1}: Missing question text`);
+      }
+
+      // Check for problematic patterns in question text
+      if (qText.includes(" ()") || qText.includes("() ")) {
+        throw new Error(
+          `Question ${index + 1}: Question contains empty parentheses "()". This indicates missing mathematical notation. Please regenerate questions using plain text format like "2n = 12" instead of LaTeX.`,
+        );
+      }
+
+      // Ensure answer index is valid first
+      const answerIndex = parseInt(question.ans);
+      if (
+        isNaN(answerIndex) ||
+        answerIndex < 0 ||
+        answerIndex >= question.opts.length
+      ) {
+        throw new Error(
+          `Question ${index + 1}: Invalid answer index ${question.ans}`,
+        );
+      }
+
+      // Ensure options are properly formatted strings and store cleaned values
+      const cleanedOptions = question.opts.map((opt, optIdx) => {
+        const optValue =
+          typeof opt === "string" ? opt.trim() : String(opt).trim();
+
+        if (!optValue) {
+          throw new Error(
+            `Question ${index + 1}, Option ${optIdx + 1}: Empty option detected`,
+          );
+        }
+
+        // Check minimum length
+        if (optValue.length < 2) {
+          throw new Error(
+            `Question ${index + 1}, Option ${optIdx + 1}: Option too short ("${optValue}") - minimum 2 characters required`,
+          );
+        }
+
+        // Check for problematic patterns
+        const problematicPatterns = [
+          { pattern: /^\(\)$/, desc: "only empty parentheses" },
+          { pattern: /^\s*\(\s*\)\s*$/, desc: "only empty parentheses" },
+          {
+            pattern: /\(\s*\)\s+and\s+\(\s*\)/i,
+            desc: "contains empty parentheses like '() and ()' (missing chromosome notation)",
+          },
+          {
+            pattern: /trisomic\s+\(\s*\)/i,
+            desc: "trisomic with empty parentheses (should be 'trisomic (2n+1)')",
+          },
+          {
+            pattern: /monosomic\s+\(\s*\)/i,
+            desc: "monosomic with empty parentheses (should be 'monosomic (2n-1)')",
+          },
+          {
+            pattern: /containing\s+\(\s*\)\s+chromosomes/i,
+            desc: "missing chromosome count",
+          },
+          {
+            pattern: /of\s+\(\s*\)/i,
+            desc: "contains 'of ()' - missing value",
+          },
+          {
+            pattern: /\(\s*\)\s+per\s+mL/i,
+            desc: "missing value before 'per mL' (should be '10^6 per mL')",
+          },
+          { pattern: /^\s*per\s+/i, desc: "starts with 'per' (missing value)" },
+        ];
+
+        for (const { pattern, desc } of problematicPatterns) {
+          if (pattern.test(optValue)) {
+            throw new Error(
+              `Question ${index + 1}, Option ${optIdx + 1}: Invalid option - ${desc}.\nValue: "${optValue.substring(0, 100)}"\n\n⚠️ This indicates the AI used LaTeX/mathematical notation that wasn't rendered. Please regenerate questions with the updated prompt that enforces plain text formatting.`,
+            );
+          }
+        }
+
+        return optValue;
+      });
+
+      // Use the cleaned option value for the correct answer
+      const correctAnswerValue = cleanedOptions[answerIndex];
+
+      // Final validation: Ensure correctAnswerValue is valid for Google Forms API
+      if (!correctAnswerValue || correctAnswerValue.trim().length === 0) {
+        throw new Error(
+          `Question ${index + 1}: Correct answer value is empty or invalid. Answer index: ${answerIndex}`,
+        );
+      }
+
+      // Validate all options one more time before creating API structure
+      cleanedOptions.forEach((opt, idx) => {
+        if (!opt || opt.length < 2) {
+          throw new Error(
+            `Question ${index + 1}, Option ${idx + 1}: Invalid option for Google Forms API - option.value requires at least 2 characters. Current: "${opt}"`,
+          );
+        }
+      });
+
+      console.log(
+        `Q${index + 1}: Answer=${answerIndex}, Value="${correctAnswerValue.substring(0, 30)}..."`,
+      );
+
+      // Create the Google Forms API request structure
+      const optionObjects = cleanedOptions.map((opt) => {
+        // Double-check each option has a valid value property
+        if (!opt || typeof opt !== "string" || opt.trim().length === 0) {
+          throw new Error(`Invalid option.value: "${opt}"`);
+        }
+        return { value: opt };
+      });
+
+      return {
+        createItem: {
+          item: {
+            title: question.q,
+            questionItem: {
+              question: {
+                required: true,
+                choiceQuestion: {
+                  type: "RADIO",
+                  options: optionObjects,
+                  shuffle: false,
+                },
+                grading: {
+                  pointValue: 4,
+                  correctAnswers: {
+                    answers: [{ value: correctAnswerValue }],
+                  },
                 },
               },
             },
           },
+          location: { index: index },
         },
-        location: { index: index },
-      },
-    }));
+      };
+    });
+
+    // Debug: Log first question structure
+    if (requests.length > 0) {
+      console.log("📋 First question structure:");
+      console.log(JSON.stringify(requests[0], null, 2).substring(0, 500));
+    }
 
     // Add questions to form
     await forms.forms.batchUpdate({
@@ -643,8 +908,32 @@ app.post("/create-form", async (req, res) => {
       emailError: emailResult.error,
     });
   } catch (error) {
-    console.error("Error creating form:", error);
-    res.json({ success: false, error: error.message });
+    console.error("❌ Error creating form:", error);
+    console.error("Error details:", {
+      message: error.message,
+      code: error.code,
+      errors: error.errors,
+      stack: error.stack,
+    });
+
+    let errorMessage = error.message || "Failed to create form";
+
+    // Provide helpful message for common issues
+    if (error.message && error.message.includes("option.value")) {
+      errorMessage = `❌ Invalid question options detected. ${error.message}\n\n📝 Solution: The current questions.json contains empty or improperly formatted options (like empty parentheses). Please:\n1. Generate a NEW prompt in Step 3 (the updated prompt enforces plain text formatting)\n2. Get NEW questions from AI\n3. Paste and save the new JSON\n4. Then create the form`;
+    } else if (
+      error.message &&
+      (error.message.includes("empty parentheses") ||
+        error.message.includes("LaTeX"))
+    ) {
+      errorMessage = `${error.message}\n\n📝 Solution: Please generate new questions using the updated prompt that enforces plain text formatting (no LaTeX).`;
+    }
+
+    res.json({
+      success: false,
+      error: errorMessage,
+      details: error.errors || error.details || null,
+    });
   }
 });
 

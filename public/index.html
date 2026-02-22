@@ -1403,11 +1403,17 @@
             }
             showMessage(message, "success");
           } else {
-            showMessage("Error: " + data.error, "error");
+            let errorMsg = "Error: " + data.error;
+            if (data.details) {
+              console.error("Detailed error:", data.details);
+              errorMsg += "\nCheck console for details.";
+            }
+            showMessage(errorMsg, "error");
             document.getElementById("createFormBtn").disabled = false;
           }
         } catch (error) {
-          showMessage("Failed to create form", "error");
+          console.error("Form creation error:", error);
+          showMessage("Failed to create form: " + error.message, "error");
           document.getElementById("createFormBtn").disabled = false;
         } finally {
           showLoading(false);
