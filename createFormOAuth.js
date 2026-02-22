@@ -4,8 +4,9 @@
 const { google } = require("googleapis");
 const path = require("path");
 const fs = require("fs");
+require("dotenv").config();
 
-const FOLDER_ID = "1PvvIr_yt3K0ZJVIB0ce8smu21Har1XjY";
+const FOLDER_ID = process.env.FOLDER_ID;
 const TOKEN_PATH = path.join(__dirname, "token.json");
 
 // You'll need to create OAuth2 credentials in Google Cloud Console
@@ -74,11 +75,20 @@ async function createNeetQuiz(questions) {
   const forms = google.forms({ version: "v1", auth });
   const drive = google.drive({ version: "v3", auth });
 
-  console.log("\nCreating form...");
+  const formTitle = `NEET 2026 Daily Test - ${new Date()
+    .toLocaleDateString("en-US", {
+      month: "2-digit",
+      day: "2-digit",
+      year: "numeric",
+    })
+    .replace(/\//g, "-")}`;
+
+  console.log(`\nCreating form: ${formTitle}...`);
   const newForm = await forms.forms.create({
     requestBody: {
       info: {
-        title: `NEET 2026 Daily Test - ${new Date().toLocaleDateString("en-US")}`,
+        title: formTitle,
+        documentTitle: formTitle,
       },
     },
   });

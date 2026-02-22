@@ -32,24 +32,19 @@ npm install
 7. Download the credentials
 8. Save as `oauth_credentials.json` in the project root
 
-#### First Time Authentication
+### 3. Configure Environment Variables
+
+1. Copy the example environment file:
 
 ```bash
-node createFormOAuth.js
+cp .env.example .env
 ```
 
-- The script will open a browser for authentication
-- Sign in with your Google account
-- Grant the requested permissions
-- Copy the authorization code and paste it in the terminal
-- A `token.json` file will be created for future use
+2. Edit `.env` and set your Google Drive folder ID:
 
-### 3. Configure Folder ID
-
-Edit `createFormOAuth.js` and set your Google Drive folder ID:
-
-```javascript
-const FOLDER_ID = "YOUR_FOLDER_ID_HERE";
+```
+FOLDER_ID=your_folder_id_here
+PORT=3000
 ```
 
 To find your folder ID, open the folder in Google Drive and copy the ID from the URL:
@@ -58,7 +53,28 @@ To find your folder ID, open the folder in Google Drive and copy the ID from the
 https://drive.google.com/drive/folders/YOUR_FOLDER_ID_HERE
 ```
 
-### 4. Add Questions
+### 4. Start the Web Interface
+
+```bash
+npm start
+```
+
+Then open `http://localhost:3000` in your browser.
+
+**Web Interface Features:**
+
+- ✅ Beautiful step-by-step guided process
+- ✅ One-click copy buttons for all URLs and links
+- ✅ Automatic browser opening for OAuth
+- ✅ Visual feedback and error messages
+
+#### OR Use Command Line
+
+```bash
+node createFormOAuth.js
+```
+
+### 5. Add Questions
 
 Edit `questions.json` with your quiz questions:
 
@@ -76,11 +92,9 @@ Edit `questions.json` with your quiz questions:
 - `opts`: Array of 4 options
 - `ans`: Index of correct answer (0-3)
 
-### 5. Run the Script
+### 6. How It Works
 
-```bash
-node createFormOAuth.js
-```
+The application will:
 
 The script will:
 
@@ -92,8 +106,11 @@ The script will:
 
 ## Files
 
-- `createFormOAuth.js` - Main script using OAuth2
+- `server.js` - Web server with beautiful UI
+- `public/index.html` - Web interface for easy OAuth and form creation
+- `createFormOAuth.js` - Command-line script using OAuth2
 - `questions.json` - Quiz questions data
+- `.env` - Environment variables (FOLDER_ID, PORT)
 - `package.json` - Node dependencies
 - `.gitignore` - Protects sensitive files
 
@@ -104,8 +121,14 @@ The script will:
 - `credentials.json`
 - `oauth_credentials.json`
 - `token.json`
+- `.env`
 
 These files contain sensitive authentication data and are protected by `.gitignore`.
+
+**✅ Safe to commit:**
+
+- `.env.example` - Template for environment variables
+- `oauth_credentials.json.example` - Template for OAuth credentials
 
 ## Troubleshooting
 

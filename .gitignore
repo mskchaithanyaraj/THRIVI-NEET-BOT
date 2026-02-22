@@ -2,6 +2,7 @@
 credentials.json
 oauth_credentials.json
 token.json
+.env
 
 # Node modules
 node_modules/

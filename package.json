@@ -1,16 +1,23 @@
 {
   "name": "thrivi-neet-bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "NEET Quiz Creator with Google Forms",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "neet",
+    "quiz",
+    "google-forms"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
     "googleapis": "^171.4.0",
     "open": "^11.0.0"
   }
